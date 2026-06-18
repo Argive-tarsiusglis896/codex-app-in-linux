@@ -1,0 +1,35 @@
+Command run from evidence/codex-linux-wrapper:
+
+make build-app DMG="$PWD/../upstream/Codex.dmg"
+
+Observed result: failed, exit code 2.
+
+Relevant output:
+
+============================================
+  Codex App on Linux — Installer
+============================================
+
+[INFO] All system dependencies found (using 7z)
+[INFO] Using cached managed Node.js runtime: /home/yun/.cache/codex-desktop/node-runtime/node-v22.22.2-linux-x64.tar.xz
+[INFO] Managed Node.js runtime ready: /home/yun/tmp/codex-linux-app-proof/.gjc/state/team/execute-approved-plan-to-valid-ac009d6e/worktrees/worker-3/evidence/codex-linux-wrapper/codex-app/resources/node-runtime
+[INFO] Using provided DMG: /home/yun/tmp/codex-linux-app-proof/.gjc/state/team/execute-approved-plan-to-valid-ac009d6e/worktrees/worker-3/evidence/upstream/Codex.dmg
+[INFO] Extracting DMG with 7z...
+
+7-Zip 23.01 (x64) : Copyright (c) 1999-2023 Igor Pavlov : 2023-06-20
+Scanning the drive for archives:
+1 file, 74409756 bytes (71 MiB)
+
+Extracting archive: /home/yun/tmp/codex-linux-app-proof/.gjc/state/team/execute-approved-plan-to-valid-ac009d6e/worktrees/worker-3/evidence/upstream/Codex.dmg
+ERROR: /home/yun/tmp/codex-linux-app-proof/.gjc/state/team/execute-approved-plan-to-valid-ac009d6e/worktrees/worker-3/evidence/upstream/Codex.dmg
+Open ERROR: Cannot open the file as [Dmg] archive
+
+Can't open as archive: 1
+Files: 0
+Size:       0
+Compressed: 0
+[ERROR] Failed to extract DMG
+[ERROR] Failed at line 101 (exit code 1)
+make: *** [Makefile:176: build-app] Error 1
+
+Interpretation: the installed `/usr/bin/7z` 23.01 was present but could not extract the frozen upstream DMG. Under the team stop condition, worker-3 did not run dependency bootstrap, package managers, or user-scope 7zz bootstrap. Exact missing/blocked dependency: APFS/current-DMG-capable `7zz` or equivalent extractor approved for this host.

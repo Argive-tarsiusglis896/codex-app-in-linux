@@ -1,0 +1,9 @@
+[make] Regenerating codex-app from fresh DMG
+MAX_BUILD_THREADS="0" ./install.sh --fresh "/home/yun/tmp/codex-proof-work/artifacts/Codex.dmg"
+Patched Linux window, shell, and appearance behavior: {
+  target: [32m'/tmp/tmp.S4l73mI0xc/app-extracted/.vite/build/main-DLo8G5hp.js'[39m,
+  mainBundle: [32m'main-DLo8G5hp.js'[39m,
+  iconAsset: [32m'app-D0g8sCle.png'[39m,
+  desktopName: [32m'codex-desktop.desktop'[39m
+}
+Ordering file has 100% coverage.

@@ -1,0 +1,26 @@
+HTTP/2 200 
+date: Thu, 18 Jun 2026 06:38:22 GMT
+content-type: application/x-apple-diskimage
+content-length: 486144300
+last-modified: Wed, 17 Jun 2026 14:52:47 GMT
+etag: 0x8DECC801870CD77
+server: cloudflare
+x-ms-request-id: 8420012d-401e-0035-2e71-fe1dac000000
+x-ms-request-priority: 3
+x-ms-version: 2009-09-19
+x-ms-lease-status: unlocked
+x-ms-blob-type: BlockBlob
+access-control-expose-headers: content-length
+access-control-allow-origin: *
+accept-ranges: bytes
+age: 2737
+cf-cache-status: HIT
+set-cookie: __cf_bm=VLPyr0eM4HkYG6euoJbfFAFVqbGmD4L6DHv.h7w4peg-1781764702.5765913-1.0.1.1-0UjJm2PHxM2AcTADmvpQJr1T5MtZ9pIF7USI.1TTc.kJw3RtBWcU0zcPZEAv5V1o4GLkwPgQssrCCIvMlGBtX3ihGJ2sytvd5F75aBHOkieQd9jFLVhciXZMMrQ3EP_p; HttpOnly; SameSite=None; Secure; Path=/; Domain=oaistatic.com; Expires=Thu, 18 Jun 2026 07:08:22 GMT
+set-cookie: _cfuvid=pmE6Bl9hm8iwGad5JNeW9dAApUuCHXXhixuDHPSY_I8-1781764702.5765913-1.0.1.1-ldPUVgtRB_WU1.75g_KXHkOq5.DLPPX11Tz.ppz71LI; HttpOnly; SameSite=None; Secure; Path=/; Domain=oaistatic.com
+strict-transport-security: max-age=31536000; includeSubDomains; preload
+x-content-type-options: nosniff
+report-to: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=BzH47g3TH%2BgYITqF1bPsCDmeEvk4%2ByXp8hKXcIXPIQ%2FVAKCE1p39M%2BERG42XnlSYupwvEKy8xwlf%2FJAg4%2BuD5X9jVX%2B3Wl0uDbo8TVP7XZRlb%2BNyw6d%2FBqqq5BE3a0ETaS8RWU9NM8sfNC2k1XysmQNzV9g%3D"}]}
+nel: {"report_to":"cf-nel","success_fraction":0.01,"max_age":604800}
+cf-ray: a0d84a6f1eb5e9fc-ICN
+alt-svc: h3=":443"; ma=86400
+

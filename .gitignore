@@ -1,0 +1,13 @@
+# generated / huge local proof artifacts
+upstream/
+evidence/upstream/Codex.dmg
+evidence/upstream/Codex.dmg.part*
+evidence/downloads/Codex.dmg
+.evidence-cache/
+.gjc/state/
+.gjc/reports/
+
+# local wrapper checkout gitlinks / generated screenshot captures
+evidence/codex-linux-wrapper
+evidence/src/codex-linux-wrapper
+evidence/**/*.xwd

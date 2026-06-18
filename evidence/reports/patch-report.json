@@ -1,0 +1,599 @@
+{
+  "generatedAt": "2026-06-18T07:13:01.202Z",
+  "target": "/tmp/tmp.S4l73mI0xc/app-extracted/.vite/build/main-DLo8G5hp.js",
+  "mainBundle": "main-DLo8G5hp.js",
+  "iconAsset": "app-D0g8sCle.png",
+  "desktopName": "codex-desktop.desktop",
+  "linuxTarget": {
+    "summary": "ubuntu:24.04/deb:ubuntu+gnome",
+    "distro": {
+      "id": "ubuntu",
+      "idLike": [
+        "debian"
+      ],
+      "versionId": "24.04",
+      "versionMajor": 24,
+      "prettyName": "Ubuntu 24.04.4 LTS"
+    },
+    "packageFormat": "deb",
+    "packageManager": "apt",
+    "arch": "x64",
+    "desktop": {
+      "raw": "ubuntu:GNOME",
+      "tokens": [
+        "ubuntu",
+        "gnome"
+      ]
+    },
+    "sessionType": "wayland",
+    "wayland": true,
+    "x11": true
+  },
+  "enabledFeatures": [],
+  "patches": [
+    {
+      "name": "linux-quit-guard",
+      "status": "applied",
+      "phase": "main-bundle",
+      "targetSummary": "all-linux",
+      "ciPolicy": "required-upstream",
+      "sourceKind": "core"
+    },
+    {
+      "name": "linux-explicit-quit-prompt-bypass",
+      "status": "applied",
+      "phase": "main-bundle",
+      "targetSummary": "all-linux",
+      "ciPolicy": "required-upstream",
+      "sourceKind": "core"
+    },
+    {
+      "name": "linux-explicit-quit-drain-timeout",
+      "status": "already-applied",
+      "phase": "main-bundle",
+      "targetSummary": "all-linux",
+      "ciPolicy": "required-upstream",
+      "sourceKind": "core"
+    },
+    {
+      "name": "linux-explicit-tray-quit",
+      "status": "applied",
+      "phase": "main-bundle",
+      "targetSummary": "all-linux",
+      "ciPolicy": "required-upstream",
+      "sourceKind": "core"
+    },
+    {
+      "name": "linux-explicit-ipc-quit",
+      "status": "applied",
+      "phase": "main-bundle",
+      "targetSummary": "all-linux",
+      "ciPolicy": "required-upstream",
+      "sourceKind": "core"
+    },
+    {
+      "name": "linux-window-options",
+      "status": "applied",
+      "phase": "main-bundle",
+      "targetSummary": "all-linux",
+      "ciPolicy": "required-upstream",
+      "sourceKind": "core"
+    },
+    {
+      "name": "linux-about-dialog",
+      "status": "applied",
+      "phase": "main-bundle",
+      "targetSummary": "all-linux",
+      "ciPolicy": "optional",
+      "sourceKind": "core"
+    },
+    {
+      "name": "linux-menu",
+      "status": "applied",
+      "phase": "main-bundle",
+      "targetSummary": "all-linux",
+      "ciPolicy": "optional",
+      "sourceKind": "core"
+    },
+    {
+      "name": "linux-set-icon",
+      "status": "applied",
+      "phase": "main-bundle",
+      "targetSummary": "all-linux",
+      "ciPolicy": "optional",
+      "sourceKind": "core"
+    },
+    {
+      "name": "linux-ready-to-show-window-state",
+      "status": "applied",
+      "phase": "main-bundle",
+      "targetSummary": "all-linux",
+      "ciPolicy": "optional",
+      "sourceKind": "core"
+    },
+    {
+      "name": "linux-resize-repaint",
+      "status": "applied",
+      "phase": "main-bundle",
+      "targetSummary": "all-linux",
+      "ciPolicy": "optional",
+      "sourceKind": "core"
+    },
+    {
+      "name": "linux-opaque-background",
+      "status": "applied",
+      "phase": "main-bundle",
+      "targetSummary": "all-linux",
+      "ciPolicy": "required-upstream",
+      "sourceKind": "core"
+    },
+    {
+      "name": "linux-native-titlebar",
+      "status": "applied",
+      "phase": "main-bundle",
+      "targetSummary": "all-linux",
+      "ciPolicy": "required-upstream",
+      "sourceKind": "core"
+    },
+    {
+      "name": "linux-avatar-overlay-mouse-passthrough",
+      "status": "applied",
+      "phase": "main-bundle",
+      "targetSummary": "all-linux",
+      "ciPolicy": "required-upstream",
+      "sourceKind": "core",
+      "strategies": [
+        {
+          "group": "avatar-interactivity",
+          "strategy": "upstream"
+        },
+        {
+          "group": "avatar-window-options",
+          "strategy": "upstream"
+        },
+        {
+          "group": "avatar-start-drag",
+          "strategy": "upstream-method"
+        },
+        {
+          "group": "avatar-end-drag",
+          "strategy": "upstream-method"
+        },
+        {
+          "group": "avatar-element-size",
+          "strategy": "upstream"
+        },
+        {
+          "group": "avatar-i3-tray-fallback",
+          "strategy": "upstream"
+        },
+        {
+          "group": "avatar-apply-layout",
+          "strategy": "upstream"
+        },
+        {
+          "group": "avatar-show-window",
+          "strategy": "upstream-regex"
+        },
+        {
+          "group": "avatar-close-cleanup",
+          "strategy": "upstream"
+        }
+      ]
+    },
+    {
+      "name": "linux-file-manager",
+      "status": "applied",
+      "phase": "main-bundle",
+      "targetSummary": "all-linux",
+      "ciPolicy": "optional",
+      "sourceKind": "core"
+    },
+    {
+      "name": "linux-tray",
+      "status": "applied",
+      "phase": "main-bundle",
+      "targetSummary": "all-linux",
+      "ciPolicy": "required-upstream",
+      "sourceKind": "core"
+    },
+    {
+      "name": "linux-build-info-tray",
+      "status": "applied",
+      "phase": "main-bundle",
+      "targetSummary": "all-linux",
+      "ciPolicy": "optional",
+      "sourceKind": "core"
+    },
+    {
+      "name": "linux-single-instance",
+      "status": "already-applied",
+      "phase": "main-bundle",
+      "targetSummary": "all-linux",
+      "ciPolicy": "optional",
+      "sourceKind": "core"
+    },
+    {
+      "name": "linux-computer-use-ui-feature",
+      "status": "skipped-disabled",
+      "phase": "main-bundle",
+      "targetSummary": "all-linux",
+      "ciPolicy": "opt-in",
+      "sourceKind": "core"
+    },
+    {
+      "name": "linux-computer-use-plugin-gate",
+      "status": "applied",
+      "phase": "main-bundle",
+      "targetSummary": "all-linux",
+      "ciPolicy": "optional",
+      "sourceKind": "core"
+    },
+    {
+      "name": "linux-chrome-plugin-auto-install",
+      "status": "applied",
+      "phase": "main-bundle",
+      "targetSummary": "all-linux",
+      "ciPolicy": "optional",
+      "sourceKind": "core"
+    },
+    {
+      "name": "browser-use-node-repl-approval",
+      "status": "applied",
+      "phase": "main-bundle",
+      "targetSummary": "all-linux",
+      "ciPolicy": "optional",
+      "sourceKind": "core"
+    },
+    {
+      "name": "linux-browser-use-route-liveness",
+      "status": "applied",
+      "phase": "main-bundle",
+      "targetSummary": "all-linux",
+      "ciPolicy": "optional",
+      "sourceKind": "core"
+    },
+    {
+      "name": "linux-chrome-extension-status",
+      "status": "applied",
+      "phase": "main-bundle",
+      "targetSummary": "all-linux",
+      "ciPolicy": "optional",
+      "sourceKind": "core"
+    },
+    {
+      "name": "linux-local-app-server-feature-enablement-handler",
+      "status": "applied",
+      "phase": "main-bundle",
+      "targetSummary": "all-linux",
+      "ciPolicy": "optional",
+      "sourceKind": "core"
+    },
+    {
+      "name": "linux-remote-control-config-preservation",
+      "status": "applied",
+      "phase": "main-bundle",
+      "targetSummary": "all-linux",
+      "ciPolicy": "optional",
+      "sourceKind": "core"
+    },
+    {
+      "name": "linux-app-updater-menu",
+      "status": "applied",
+      "phase": "main-bundle",
+      "targetSummary": "all-linux",
+      "ciPolicy": "optional",
+      "sourceKind": "core"
+    },
+    {
+      "name": "linux-tray-close-setting",
+      "status": "already-applied",
+      "phase": "main-bundle",
+      "targetSummary": "all-linux",
+      "ciPolicy": "optional",
+      "sourceKind": "core"
+    },
+    {
+      "name": "linux-settings-persistence",
+      "status": "applied",
+      "phase": "main-bundle",
+      "targetSummary": "all-linux",
+      "ciPolicy": "optional",
+      "sourceKind": "core"
+    },
+    {
+      "name": "linux-launch-actions",
+      "status": "applied",
+      "phase": "main-bundle",
+      "targetSummary": "all-linux",
+      "ciPolicy": "optional",
+      "sourceKind": "core"
+    },
+    {
+      "name": "linux-hotkey-window-prewarm",
+      "status": "applied",
+      "phase": "main-bundle",
+      "targetSummary": "all-linux",
+      "ciPolicy": "optional",
+      "sourceKind": "core"
+    },
+    {
+      "name": "linux-git-origins-source-fallback",
+      "status": "applied",
+      "phase": "main-bundle",
+      "targetSummary": "all-linux",
+      "ciPolicy": "optional",
+      "sourceKind": "core"
+    },
+    {
+      "name": "linux-xdg-documents-dir",
+      "status": "applied",
+      "phase": "main-bundle",
+      "targetSummary": "all-linux",
+      "ciPolicy": "optional",
+      "sourceKind": "core"
+    },
+    {
+      "name": "main-process-ui",
+      "status": "applied",
+      "phase": "main-bundle",
+      "ciPolicy": "required-upstream",
+      "sourceKind": "core"
+    },
+    {
+      "name": "linux-multi-instance-bootstrap-lock",
+      "status": "applied",
+      "phase": "extracted-app",
+      "targetSummary": "all-linux",
+      "ciPolicy": "required-upstream",
+      "sourceKind": "core"
+    },
+    {
+      "name": "linux-chrome-native-host-runtime",
+      "status": "applied",
+      "phase": "extracted-app",
+      "targetSummary": "all-linux",
+      "ciPolicy": "optional",
+      "sourceKind": "core"
+    },
+    {
+      "name": "automation-schedule-multi-time-rrule",
+      "status": "applied",
+      "phase": "extracted-app",
+      "targetSummary": "all-linux",
+      "ciPolicy": "optional",
+      "sourceKind": "core"
+    },
+    {
+      "name": "linux-projectless-xdg-documents-dir",
+      "status": "applied",
+      "phase": "extracted-app",
+      "targetSummary": "all-linux",
+      "ciPolicy": "optional",
+      "sourceKind": "core"
+    },
+    {
+      "name": "linux-app-updater-bridge",
+      "status": "applied",
+      "phase": "extracted-app",
+      "targetSummary": "all-linux",
+      "ciPolicy": "optional",
+      "sourceKind": "core"
+    },
+    {
+      "name": "browser-annotation-screenshot",
+      "status": "applied",
+      "phase": "extracted-app",
+      "targetSummary": "all-linux",
+      "ciPolicy": "optional",
+      "sourceKind": "core"
+    },
+    {
+      "name": "linux-app-sunset-gate",
+      "status": "already-applied",
+      "phase": "webview-asset",
+      "targetSummary": "all-linux",
+      "ciPolicy": "required-upstream",
+      "sourceKind": "core"
+    },
+    {
+      "name": "opaque-window-default-general-settings",
+      "status": "applied",
+      "phase": "webview-asset",
+      "targetSummary": "all-linux",
+      "ciPolicy": "optional",
+      "sourceKind": "core"
+    },
+    {
+      "name": "opaque-window-default-webview-index",
+      "status": "applied",
+      "phase": "webview-asset",
+      "targetSummary": "all-linux",
+      "ciPolicy": "optional",
+      "sourceKind": "core"
+    },
+    {
+      "name": "opaque-window-default-resolved-theme",
+      "status": "applied",
+      "phase": "webview-asset",
+      "targetSummary": "all-linux",
+      "ciPolicy": "optional",
+      "sourceKind": "core"
+    },
+    {
+      "name": "linux-app-server-feature-enablement",
+      "status": "applied",
+      "phase": "webview-asset",
+      "targetSummary": "all-linux",
+      "ciPolicy": "optional",
+      "sourceKind": "core"
+    },
+    {
+      "name": "linux-fast-mode-model-guard",
+      "status": "already-applied",
+      "phase": "webview-asset",
+      "targetSummary": "all-linux",
+      "ciPolicy": "required-upstream",
+      "sourceKind": "core"
+    },
+    {
+      "name": "linux-window-controls-safe-area",
+      "status": "applied",
+      "phase": "webview-asset",
+      "targetSummary": "all-linux",
+      "ciPolicy": "optional",
+      "sourceKind": "core"
+    },
+    {
+      "name": "linux-app-server-backfill-wait",
+      "status": "applied",
+      "phase": "webview-asset",
+      "targetSummary": "all-linux",
+      "ciPolicy": "optional",
+      "sourceKind": "core"
+    },
+    {
+      "name": "linux-i18n-gate",
+      "status": "applied",
+      "phase": "webview-asset",
+      "targetSummary": "all-linux",
+      "ciPolicy": "optional",
+      "sourceKind": "core"
+    },
+    {
+      "name": "linux-profile-settings-menu",
+      "status": "already-applied",
+      "phase": "webview-asset",
+      "targetSummary": "all-linux",
+      "ciPolicy": "optional",
+      "sourceKind": "core"
+    },
+    {
+      "name": "linux-config-write-version-conflict",
+      "status": "applied",
+      "phase": "webview-asset",
+      "targetSummary": "all-linux",
+      "ciPolicy": "optional",
+      "sourceKind": "core"
+    },
+    {
+      "name": "linux-safe-monospace-font-stack",
+      "status": "applied",
+      "phase": "webview-asset",
+      "targetSummary": "all-linux",
+      "ciPolicy": "optional",
+      "sourceKind": "core"
+    },
+    {
+      "name": "composer-persistent-rate-limit-footer",
+      "status": "applied",
+      "phase": "webview-asset",
+      "targetSummary": "all-linux",
+      "ciPolicy": "optional",
+      "sourceKind": "core",
+      "strategies": [
+        {
+          "group": "rate-limit-footer",
+          "strategy": "upstream-latest"
+        }
+      ]
+    },
+    {
+      "name": "subagent-nickname-metadata-shape",
+      "status": "applied",
+      "phase": "webview-asset",
+      "targetSummary": "all-linux",
+      "ciPolicy": "required-upstream",
+      "sourceKind": "core"
+    },
+    {
+      "name": "linux-tooltip-window-controls-collision",
+      "status": "applied",
+      "phase": "webview-asset",
+      "targetSummary": "all-linux",
+      "ciPolicy": "optional",
+      "sourceKind": "core"
+    },
+    {
+      "name": "local-environment-action-modal-draft",
+      "status": "applied",
+      "phase": "webview-asset",
+      "targetSummary": "all-linux",
+      "ciPolicy": "optional",
+      "sourceKind": "core"
+    },
+    {
+      "name": "linux-thread-side-panel-native-tooltip",
+      "status": "applied",
+      "phase": "webview-asset",
+      "targetSummary": "all-linux",
+      "ciPolicy": "optional",
+      "sourceKind": "core"
+    },
+    {
+      "name": "linux-browser-use-availability",
+      "status": "applied",
+      "phase": "webview-asset",
+      "targetSummary": "all-linux",
+      "ciPolicy": "optional",
+      "sourceKind": "core"
+    },
+    {
+      "name": "linux-browser-use-non-local-navigation",
+      "status": "applied",
+      "phase": "webview-asset",
+      "targetSummary": "all-linux",
+      "ciPolicy": "optional",
+      "sourceKind": "core"
+    },
+    {
+      "name": "linux-browser-use-external-availability",
+      "status": "applied",
+      "phase": "webview-asset",
+      "targetSummary": "all-linux",
+      "ciPolicy": "optional",
+      "sourceKind": "core"
+    },
+    {
+      "name": "linux-chat-search-hydration",
+      "status": "applied",
+      "phase": "webview-asset",
+      "targetSummary": "all-linux",
+      "ciPolicy": "optional",
+      "sourceKind": "core"
+    },
+    {
+      "name": "linux-computer-use-ui-availability",
+      "status": "skipped-disabled",
+      "phase": "webview-asset",
+      "targetSummary": "all-linux",
+      "ciPolicy": "opt-in",
+      "sourceKind": "core"
+    },
+    {
+      "name": "linux-computer-use-install-flow",
+      "status": "skipped-disabled",
+      "phase": "webview-asset",
+      "targetSummary": "all-linux",
+      "ciPolicy": "opt-in",
+      "sourceKind": "core"
+    },
+    {
+      "name": "keybinds-settings",
+      "status": "applied",
+      "reason": "upstream keyboard shortcuts settings are present; added Linux desktop settings",
+      "phase": "extracted-app",
+      "targetSummary": "all-linux",
+      "ciPolicy": "optional",
+      "sourceKind": "core"
+    },
+    {
+      "name": "package-desktop-name",
+      "status": "applied",
+      "phase": "extracted-app",
+      "targetSummary": "all-linux",
+      "ciPolicy": "required-upstream",
+      "sourceKind": "core"
+    }
+  ]
+}

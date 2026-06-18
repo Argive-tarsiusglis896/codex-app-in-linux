@@ -1,0 +1,2 @@
+[make] Regenerating codex-app from DMG
+MAX_BUILD_THREADS="0" ./install.sh "/home/yun/tmp/codex-linux-app-proof/.gjc/state/team/execute-approved-plan-to-valid-ac009d6e/worktrees/worker-3/evidence/codex-linux-wrapper/../upstream/Codex.dmg"

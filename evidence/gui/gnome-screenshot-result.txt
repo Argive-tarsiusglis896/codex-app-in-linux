@@ -1,0 +1,4 @@
+stdout=
+stderr=Error: GDBus.Error:org.freedesktop.DBus.Error.AccessDenied: Screenshot is not allowed
+
+returncode=1
