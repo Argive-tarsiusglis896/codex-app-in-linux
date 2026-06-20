@@ -1,0 +1,70 @@
+[
+  {
+    "pid": 427455,
+    "cmd": "/home/yun/tmp/codex-linux-app-proof/upstream/codex-desktop-linux/codex-app/electron --no-sandbox --class=codex-desktop --app-id=codex-desktop --disable-dev-shm-usage --disable-gpu-sandbox --disable-gpu-compositing --user-data-dir=/home/yun/.local/state/codex-desktop/instances/port-5175/electron-user-data --ozone-platform-hint=auto --force-renderer-accessibility evidence/mac-parity-qa-20260620/lane-b/disposable-project "
+  },
+  {
+    "pid": 427467,
+    "cmd": "/home/yun/tmp/codex-linux-app-proof/upstream/codex-desktop-linux/codex-app/electron --type=zygote --no-zygote-sandbox --no-sandbox "
+  },
+  {
+    "pid": 427468,
+    "cmd": "/home/yun/tmp/codex-linux-app-proof/upstream/codex-desktop-linux/codex-app/electron --type=zygote --no-sandbox "
+  },
+  {
+    "pid": 427521,
+    "cmd": "/home/yun/tmp/codex-linux-app-proof/upstream/codex-desktop-linux/codex-app/chrome_crashpad_handler --monitor-self-annotation=ptype=crashpad-handler --no-rate-limit --database=/home/yun/.config/Codex/Crashpad --url=https://f.a.k/e --annotation=_productName=Codex --annotation=_version=26.616.41845 --annotation=lsb-release=Ubuntu 24.04.4 LTS --annotation=plat=Linux --annotation=prod=Electron --annotation=ver=42.1.0 --initial-client-fd=42 --shared-client-connection "
+  },
+  {
+    "pid": 427558,
+    "cmd": "/home/yun/tmp/codex-linux-app-proof/upstream/codex-desktop-linux/codex-app/electron --type=gpu-process --disable-gpu-sandbox --no-sandbox --disable-dev-shm-usage --ozone-platform=wayland --render-node-override=/dev/dri/renderD128 --crashpad-handler-pid=427521 --enable-crash-reporter=a53bcd9b-21bf-4a1a-93e0-37f04dc5f9aa,no_channel --user-data-dir=/home/yun/.config/Codex --gpu-preferences=UAAAAAAAAAAgAQAEAAAAAAAAAAAAAGAAAQAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAYAAAAAAAAABgAAAAAAAAAAAAAAAAAAAAIAA"
+  },
+  {
+    "pid": 427562,
+    "cmd": "/home/yun/tmp/codex-linux-app-proof/upstream/codex-desktop-linux/codex-app/electron --type=utility --utility-sub-type=network.mojom.NetworkService --lang=en-US --service-sandbox-type=none --no-sandbox --disable-dev-shm-usage --render-node-override=/dev/dri/renderD128 --crashpad-handler-pid=427521 --enable-crash-reporter=a53bcd9b-21bf-4a1a-93e0-37f04dc5f9aa,no_channel --user-data-dir=/home/yun/.config/Codex --standard-schemes=app --secure-schemes=app,sentry-ipc --bypasscsp-schemes=sentry-ipc --co"
+  },
+  {
+    "pid": 427873,
+    "cmd": "/home/yun/tmp/codex-linux-app-proof/upstream/codex-desktop-linux/codex-app/electron --type=renderer --crashpad-handler-pid=427521 --enable-crash-reporter=a53bcd9b-21bf-4a1a-93e0-37f04dc5f9aa,no_channel --user-data-dir=/home/yun/.config/Codex --standard-schemes=app --secure-schemes=app,sentry-ipc --bypasscsp-schemes=sentry-ipc --cors-schemes=sentry-ipc --fetch-schemes=app,sentry-ipc --streaming-schemes=app --app-path=/home/yun/tmp/codex-linux-app-proof/upstream/codex-desktop-linux/codex-app/resou"
+  },
+  {
+    "pid": 433524,
+    "cmd": "/bin/bash /home/yun/tmp/codex-linux-app-proof/upstream/codex-desktop-linux/codex-app/start.sh --new-instance -- /home/yun/tmp/codex-linux-app-proof/.gjc/state/team/execute-the-approved-ralplan-q-c4bf70ad/worktrees/worker-2/evidence/mac-parity-qa-20260620/lane-b/disposable-project "
+  },
+  {
+    "pid": 434492,
+    "cmd": "python3 /home/yun/tmp/codex-linux-app-proof/upstream/codex-desktop-linux/codex-app/.codex-linux/webview-server.py 5175 --bind 127.0.0.1 "
+  },
+  {
+    "pid": 434544,
+    "cmd": "/bin/bash /home/yun/tmp/codex-linux-app-proof/upstream/codex-desktop-linux/codex-app/start.sh --new-instance -- /home/yun/tmp/codex-linux-app-proof/.gjc/state/team/execute-the-approved-ralplan-q-c4bf70ad/worktrees/worker-2/evidence/mac-parity-qa-20260620/lane-b/disposable-project "
+  },
+  {
+    "pid": 434653,
+    "cmd": "/home/yun/tmp/codex-linux-app-proof/upstream/codex-desktop-linux/codex-app/electron --no-sandbox --class=codex-desktop --app-id=codex-desktop --disable-dev-shm-usage --disable-gpu-sandbox --disable-gpu-compositing --user-data-dir=/home/yun/.local/state/codex-desktop/instances/port-5175/electron-user-data --ozone-platform-hint=auto --force-renderer-accessibility /home/yun/tmp/codex-linux-app-proof/.gjc/state/team/execute-the-approved-ralplan-q-c4bf70ad/worktrees/worker-2/evidence/mac-parity-qa-20"
+  },
+  {
+    "pid": 434660,
+    "cmd": "/home/yun/tmp/codex-linux-app-proof/upstream/codex-desktop-linux/codex-app/electron --type=zygote --no-zygote-sandbox --no-sandbox "
+  },
+  {
+    "pid": 434661,
+    "cmd": "/home/yun/tmp/codex-linux-app-proof/upstream/codex-desktop-linux/codex-app/electron --type=zygote --no-sandbox "
+  },
+  {
+    "pid": 434710,
+    "cmd": "/home/yun/tmp/codex-linux-app-proof/upstream/codex-desktop-linux/codex-app/chrome_crashpad_handler --monitor-self-annotation=ptype=crashpad-handler --no-rate-limit --database=/home/yun/.config/Codex/Crashpad --url=https://f.a.k/e --annotation=_productName=Codex --annotation=_version=26.616.41845 --annotation=lsb-release=Ubuntu 24.04.4 LTS --annotation=plat=Linux --annotation=prod=Electron --annotation=ver=42.1.0 --initial-client-fd=42 --shared-client-connection "
+  },
+  {
+    "pid": 434743,
+    "cmd": "/home/yun/tmp/codex-linux-app-proof/upstream/codex-desktop-linux/codex-app/electron --type=gpu-process --disable-gpu-sandbox --no-sandbox --disable-dev-shm-usage --ozone-platform=wayland --render-node-override=/dev/dri/renderD128 --crashpad-handler-pid=434710 --enable-crash-reporter=a53bcd9b-21bf-4a1a-93e0-37f04dc5f9aa,no_channel --user-data-dir=/home/yun/.config/Codex --gpu-preferences=UAAAAAAAAAAgAQAEAAAAAAAAAAAAAGAAAQAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAYAAAAAAAAABgAAAAAAAAAAAAAAAAAAAAIAA"
+  },
+  {
+    "pid": 434751,
+    "cmd": "/home/yun/tmp/codex-linux-app-proof/upstream/codex-desktop-linux/codex-app/electron --type=utility --utility-sub-type=network.mojom.NetworkService --lang=en-US --service-sandbox-type=none --no-sandbox --disable-dev-shm-usage --render-node-override=/dev/dri/renderD128 --crashpad-handler-pid=434710 --enable-crash-reporter=a53bcd9b-21bf-4a1a-93e0-37f04dc5f9aa,no_channel --user-data-dir=/home/yun/.config/Codex --standard-schemes=app --secure-schemes=app,sentry-ipc --bypasscsp-schemes=sentry-ipc --co"
+  },
+  {
+    "pid": 435045,
+    "cmd": "/home/yun/tmp/codex-linux-app-proof/upstream/codex-desktop-linux/codex-app/electron --type=renderer --crashpad-handler-pid=434710 --enable-crash-reporter=a53bcd9b-21bf-4a1a-93e0-37f04dc5f9aa,no_channel --user-data-dir=/home/yun/.config/Codex --standard-schemes=app --secure-schemes=app,sentry-ipc --bypasscsp-schemes=sentry-ipc --cors-schemes=sentry-ipc --fetch-schemes=app,sentry-ipc --streaming-schemes=app --app-path=/home/yun/tmp/codex-linux-app-proof/upstream/codex-desktop-linux/codex-app/resou"
+  }
+]

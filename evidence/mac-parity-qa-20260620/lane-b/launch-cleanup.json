@@ -1,0 +1,7 @@
+{
+  "pid": 433524,
+  "action": "SIGTERM controlled QA launch",
+  "alive_before": true,
+  "alive_after": false,
+  "cmd_prefix": "/bin/bash /home/yun/tmp/codex-linux-app-proof/upstream/codex-desktop-linux/codex-app/start.sh --new-instance -- /home/yun/tmp/codex-linux-app-proof/.gjc/state/team/execute-the-approved-ralplan-q-c4bf7"
+}

@@ -1,0 +1,51 @@
+{
+  "tested_at": "2026-06-20T15:41:20.967398Z",
+  "cdp_launch": {
+    "status": "PASS",
+    "evidence": "CDP /json/version returned Codex/26.616.41845 Electron/42.1.0 user agent; browser tab attached to http://127.0.0.1:5175/?mcpAppSandboxDevtools=1"
+  },
+  "plugins_page": {
+    "status": "PASS",
+    "evidence": "Sidebar Plugins button opened Plugins/Skills surface with search, Added/Manage, OpenAI/workspace/personal sections and plugin catalog entries such as Data Analytics, Gmail, Canva."
+  },
+  "automations_page": {
+    "status": "PASS_UI_ONLY",
+    "evidence": "Automations page opened and displayed Create your first automation, Daily brief, Weekly review, Project monitor. No automation was created to avoid recurring side effects."
+  },
+  "mobile_remote_page": {
+    "status": "PARTIAL_WRAPPER_TEXT_BUG",
+    "evidence": "Codex mobile page opened, but copy says \"Connect your phone to this Mac\" on Linux. Remote connection was not enabled."
+  },
+  "new_chat": {
+    "status": "PASS",
+    "evidence": "New chat button returned composer with model selector, custom mode selector, dictation button, file/add button, Work in a project control."
+  },
+  "project_work_in_project": {
+    "status": "FAIL_OR_NOT_EXERCISABLE_VIA_CDP",
+    "evidence": "Clicking Project and Work in a project via DOM/CDP produced no visible project picker or file dialog text change during this run; earlier team evidence remains PARTIAL only."
+  },
+  "settings_button": {
+    "status": "FAIL_OR_NOT_EXERCISABLE_VIA_CDP",
+    "evidence": "Settings button was present but DOM click did not navigate/open visible settings panel in CDP-controlled renderer during this run."
+  },
+  "voice_dictation_button": {
+    "status": "PRESENT_GATED",
+    "evidence": "Dictate button present in composer; microphone permission/use not exercised."
+  },
+  "image_file_input": {
+    "status": "PRESENT_GATED",
+    "evidence": "Add files and more button present; synthetic image/file upload not exercised because Electron host file picker/attachment workflow not reliable through CDP in this run."
+  },
+  "web_search_prompt": {
+    "status": "PASS",
+    "evidence": "App returned WEB_SEARCH_STATUS: available and cited Codex app - OpenAI Developers after using web search. Screenshot final-ui-state.png captures result and Sources area."
+  },
+  "add_files_menu": {
+    "status": "PASS_MENU_ONLY",
+    "evidence": "Add files and more menu opened with Files and folders, Goal, Plan mode, Agents list, Files and chats search. Native file picker/upload not exercised."
+  },
+  "final_screenshot": {
+    "status": "PASS",
+    "evidence": "remaining/final-ui-state.png captures Codex UI with web search result, add-files menu, sidebar surfaces."
+  }
+}

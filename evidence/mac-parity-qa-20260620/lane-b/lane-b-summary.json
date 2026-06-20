@@ -1,0 +1,60 @@
+{
+  "verdict": "PASS_WITH_LIMITATIONS",
+  "fresh_checks": {
+    "startup_webview_http": {
+      "status": "PASS",
+      "http_status": 200,
+      "body_len": 9363,
+      "title_tag": true,
+      "root_marker": true,
+      "checked_at": "2026-06-20T15:26:39Z"
+    },
+    "launcher_signals": {
+      "webview_origin_verified": true,
+      "electron_spawned": true,
+      "app_server_stdio": true,
+      "codex_cli_initialized": true,
+      "window_ready": true,
+      "account_read_success": true,
+      "browser_use_ready": true,
+      "browser_use_available": true,
+      "updater_disabled": true,
+      "no_sandbox_observed": false,
+      "features_enabled": true,
+      "launcher_log_lines": 4729,
+      "checked_at": "2026-06-20T15:26:39Z"
+    },
+    "process_count": 16,
+    "headless_browser_note": "Plain Chromium loaded title Codex but showed only root shell because Electron host IPC is required for full app UI; not counted as product UI failure."
+  },
+  "accepted_existing_run_evidence": {
+    "source": "Existing just-now repo evidence copied into this run directory; inspected for controlled app feature smoke.",
+    "basic_chat": "PASS if prior-chat-feature-smoke.json basicChatSucceeded=true and observed codex-linux-qa-ok.",
+    "shell_approval": "PASS if prior-chat-feature-smoke.json shellCommandSucceeded=true and observed codex-linux-shell-ok.",
+    "browser_use": "PASS if prior-chat-feature-smoke.json browserUseSucceeded=true and observed Example Domain.",
+    "chat_search": "PASS if prior-chat-feature-smoke.json searchSucceeded=true.",
+    "project_workspace": "PARTIAL from prior-interactive-qa-summary: project menu opens; file dialog not exercised.",
+    "settings_restart": "NOT_RETESTED; no safe setting restart mutation performed in this lane."
+  },
+  "gates_observed": [
+    "no sudo/pkexec/package-manager/systemctl/native install/updater/service commands run",
+    "no personal browser profile used by this lane; browser check used default automation against localhost only",
+    "no production remote push/PR",
+    "no Computer Use helper install"
+  ],
+  "artifacts": [
+    "evidence/mac-parity-qa-20260620/lane-b/build-info.json",
+    "evidence/mac-parity-qa-20260620/lane-b/current-launcher-port-5175.log",
+    "evidence/mac-parity-qa-20260620/lane-b/current-launcher-signals.json",
+    "evidence/mac-parity-qa-20260620/lane-b/http-smoke.json",
+    "evidence/mac-parity-qa-20260620/lane-b/launch-status.json",
+    "evidence/mac-parity-qa-20260620/lane-b/launch.log",
+    "evidence/mac-parity-qa-20260620/lane-b/launch.pid",
+    "evidence/mac-parity-qa-20260620/lane-b/launch.stderr.log",
+    "evidence/mac-parity-qa-20260620/lane-b/prior-chat-feature-smoke.json",
+    "evidence/mac-parity-qa-20260620/lane-b/prior-interactive-qa-summary.json",
+    "evidence/mac-parity-qa-20260620/lane-b/prior-webview-smoke-result.txt",
+    "evidence/mac-parity-qa-20260620/lane-b/process-snapshot.json",
+    "evidence/mac-parity-qa-20260620/lane-b/processes.json"
+  ]
+}

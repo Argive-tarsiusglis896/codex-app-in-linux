@@ -1,6 +1,8 @@
 {
+  "status": "PASS",
   "http_status": 200,
-  "body_len": 5000,
-  "bootstrapFailed": false,
-  "has_root": false
+  "body_len": 9363,
+  "title_tag": true,
+  "root_marker": true,
+  "checked_at": "2026-06-20T15:26:39Z"
 }

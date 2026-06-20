@@ -1,0 +1,45 @@
+{
+  "updated_at": "2026-06-20T15:52:57.035288+00:00",
+  "dispositions": {
+    "fresh_login_session_persistence": {
+      "status": "GATED_NOT_RUN",
+      "reason": "Would require logout/clean profile sign-in/account credentials; current story preserved account state and did not mutate auth. Existing signed-in account readiness PASS remains separate."
+    },
+    "git_worktree_review_ui": {
+      "status": "ENV_BLOCKED_BY_PROJECT_PICKER_FAIL",
+      "reason": "Project/Work in a project control did not open a picker via CDP; without a selected project the Git/review/worktree UI cannot be exercised safely end-to-end. Existing row now remains FAIL/UNTESTED as appropriate with this blocker."
+    },
+    "chrome_disposable_profile": {
+      "status": "PARTIAL_GATED",
+      "reason": "Lane C already verified Chrome installed/running and disposable HOME lacks native-host manifest; installing extension/native host into disposable profile was not performed because plugin setup flow is account/browser-profile gated."
+    },
+    "mcp_local_mock": {
+      "status": "GATED_NOT_RUN",
+      "reason": "No visible Settings/MCP panel opened in CDP; adding config by hand would test CLI/config plumbing rather than app UI. OAuth/HTTP remain gated."
+    },
+    "memories": {
+      "status": "GATED_NOT_RUN",
+      "reason": "Synthetic memory add/use/remove not run to avoid persistent account mutation; cleanup proof would be required."
+    },
+    "notifications": {
+      "status": "GATED_NOT_RUN",
+      "reason": "Desktop notification emission requires session permission/background state; not run to avoid desktop permission mutation."
+    },
+    "prevent_sleep": {
+      "status": "GATED_NOT_RUN",
+      "reason": "Sleep inhibitor toggling is system/session side effect; not run without explicit system behavior approval."
+    },
+    "appshots": {
+      "status": "ENV_BLOCKED_PLATFORM",
+      "reason": "Prior GNOME/Wayland screenshot capture failed; current Linux UI did not expose a successful Appshots workflow. Official docs are macOS-oriented."
+    },
+    "artifact_preview": {
+      "status": "UNTESTED_BLOCKED_BY_FILE_ATTACHMENT_PROJECT_LIMITS",
+      "reason": "No safe generated artifact workflow was completed after project picker/settings issues; add-files menu present but native picker not exercised."
+    },
+    "floating_popout": {
+      "status": "UNTESTED_NO_VISIBLE_CONTROL",
+      "reason": "No pop-out/stay-on-top control was visible in the new-chat/composer UI under CDP during this run."
+    }
+  }
+}

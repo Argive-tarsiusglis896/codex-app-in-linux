@@ -1,0 +1,41 @@
+{
+  "updated_at": "2026-06-20T16:31:55Z",
+  "files": [
+    {
+      "path": "evidence/mac-parity-qa-20260620/remaining/blocker-dispositions.json",
+      "bytes": 2523
+    },
+    {
+      "path": "evidence/mac-parity-qa-20260620/remaining/browser-automation-cdp.json",
+      "bytes": 5082
+    },
+    {
+      "path": "evidence/mac-parity-qa-20260620/remaining/final-ui-state-annotated-noise.png",
+      "bytes": 835678
+    },
+    {
+      "path": "evidence/mac-parity-qa-20260620/remaining/final-ui-state.png",
+      "bytes": 124244
+    },
+    {
+      "path": "evidence/mac-parity-qa-20260620/remaining/launch-cdp-cleanup.json",
+      "bytes": 91
+    },
+    {
+      "path": "evidence/mac-parity-qa-20260620/remaining/launch-cdp.log",
+      "bytes": 0
+    },
+    {
+      "path": "evidence/mac-parity-qa-20260620/remaining/launch-cdp.stderr.log",
+      "bytes": 0
+    },
+    {
+      "path": "evidence/mac-parity-qa-20260620/remaining/remaining-manifest.json",
+      "bytes": 450
+    },
+    {
+      "path": "evidence/mac-parity-qa-20260620/remaining/ui-surface-results.json",
+      "bytes": 2714
+    }
+  ]
+}

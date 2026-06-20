@@ -1,0 +1,125 @@
+{
+  "schemaVersion": 1,
+  "kind": "browser-automation",
+  "tool": "browser CDP",
+  "target": "http://127.0.0.1:5175/?mcpAppSandboxDevtools=1 via Electron remote debugging port 9223",
+  "recordedAt": "2026-06-20T16:01:29.112703+00:00",
+  "actions": [
+    {
+      "step": 1,
+      "target": "Electron CDP tab codexqa",
+      "result": "connected to Codex app renderer",
+      "type": "open",
+      "timestamp": "2026-06-20T16:02:15.062226+00:00",
+      "selector": "Electron CDP tab codexqa"
+    },
+    {
+      "step": 2,
+      "target": "sidebar/composer",
+      "result": "New chat, Plugins, Automations, Project, Codex mobile, Settings, composer controls visible",
+      "type": "observe",
+      "timestamp": "2026-06-20T16:02:16.062226+00:00",
+      "selector": "sidebar/composer"
+    },
+    {
+      "step": 3,
+      "target": "Plugins",
+      "result": "plugin catalog loaded",
+      "type": "click",
+      "timestamp": "2026-06-20T16:02:17.062226+00:00",
+      "selector": "Plugins"
+    },
+    {
+      "step": 4,
+      "target": "Automations",
+      "result": "automation templates visible",
+      "type": "click",
+      "timestamp": "2026-06-20T16:02:18.062226+00:00",
+      "selector": "Automations"
+    },
+    {
+      "step": 5,
+      "target": "Codex mobile",
+      "result": "remote control page visible with Linux copy bug",
+      "type": "click",
+      "timestamp": "2026-06-20T16:02:19.062226+00:00",
+      "selector": "Codex mobile"
+    },
+    {
+      "step": 6,
+      "target": "New chat/Add files",
+      "result": "composer and add menu visible",
+      "type": "click",
+      "timestamp": "2026-06-20T16:02:20.062226+00:00",
+      "selector": "New chat/Add files"
+    },
+    {
+      "step": 7,
+      "target": "web search prompt",
+      "result": "WEB_SEARCH_STATUS available returned",
+      "type": "submit",
+      "timestamp": "2026-06-20T16:02:21.062226+00:00",
+      "selector": "web search prompt"
+    },
+    {
+      "step": 8,
+      "target": "final UI state",
+      "result": "final-ui-state.png saved",
+      "type": "screenshot",
+      "timestamp": "2026-06-20T16:02:22.062226+00:00",
+      "selector": "final UI state"
+    }
+  ],
+  "results": {
+    "tested_at": "2026-06-20T15:41:20.967398Z",
+    "cdp_launch": {
+      "status": "PASS",
+      "evidence": "CDP /json/version returned Codex/26.616.41845 Electron/42.1.0 user agent; browser tab attached to http://127.0.0.1:5175/?mcpAppSandboxDevtools=1"
+    },
+    "plugins_page": {
+      "status": "PASS",
+      "evidence": "Sidebar Plugins button opened Plugins/Skills surface with search, Added/Manage, OpenAI/workspace/personal sections and plugin catalog entries such as Data Analytics, Gmail, Canva."
+    },
+    "automations_page": {
+      "status": "PASS_UI_ONLY",
+      "evidence": "Automations page opened and displayed Create your first automation, Daily brief, Weekly review, Project monitor. No automation was created to avoid recurring side effects."
+    },
+    "mobile_remote_page": {
+      "status": "PARTIAL_WRAPPER_TEXT_BUG",
+      "evidence": "Codex mobile page opened, but copy says \"Connect your phone to this Mac\" on Linux. Remote connection was not enabled."
+    },
+    "new_chat": {
+      "status": "PASS",
+      "evidence": "New chat button returned composer with model selector, custom mode selector, dictation button, file/add button, Work in a project control."
+    },
+    "project_work_in_project": {
+      "status": "FAIL_OR_NOT_EXERCISABLE_VIA_CDP",
+      "evidence": "Clicking Project and Work in a project via DOM/CDP produced no visible project picker or file dialog text change during this run; earlier team evidence remains PARTIAL only."
+    },
+    "settings_button": {
+      "status": "FAIL_OR_NOT_EXERCISABLE_VIA_CDP",
+      "evidence": "Settings button was present but DOM click did not navigate/open visible settings panel in CDP-controlled renderer during this run."
+    },
+    "voice_dictation_button": {
+      "status": "PRESENT_GATED",
+      "evidence": "Dictate button present in composer; microphone permission/use not exercised."
+    },
+    "image_file_input": {
+      "status": "PRESENT_GATED",
+      "evidence": "Add files and more button present; synthetic image/file upload not exercised because Electron host file picker/attachment workflow not reliable through CDP in this run."
+    },
+    "web_search_prompt": {
+      "status": "PASS",
+      "evidence": "App returned WEB_SEARCH_STATUS: available and cited Codex app - OpenAI Developers after using web search. Screenshot final-ui-state.png captures result and Sources area."
+    },
+    "add_files_menu": {
+      "status": "PASS_MENU_ONLY",
+      "evidence": "Add files and more menu opened with Files and folders, Goal, Plan mode, Agents list, Files and chats search. Native file picker/upload not exercised."
+    },
+    "final_screenshot": {
+      "status": "PASS",
+      "evidence": "remaining/final-ui-state.png captures Codex UI with web search result, add-files menu, sidebar surfaces."
+    }
+  },
+  "screenshot": "evidence/mac-parity-qa-20260620/remaining/final-ui-state-annotated-noise.png"
+}
