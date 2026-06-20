@@ -1,0 +1,16 @@
+{
+  "platform": "linux",
+  "default_browser": {
+    "source": "xdg-settings",
+    "desktop_file": "google-chrome.desktop"
+  },
+  "installed_browsers": [
+    {
+      "name": "Google Chrome",
+      "command": "google-chrome",
+      "path": "/usr/bin/google-chrome",
+      "bundle_id": "com.google.Chrome",
+      "version": null
+    }
+  ]
+}

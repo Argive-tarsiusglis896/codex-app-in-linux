@@ -1,0 +1,68 @@
+[
+  {
+    "label": "chrome-plugin.json",
+    "source": "/home/yun/tmp/codex-linux-app-proof/upstream/codex-desktop-linux/codex-app/resources/plugins/openai-bundled/plugins/chrome/.codex-plugin/plugin.json",
+    "sha256": "38edc7f73e94fa502f4bf343694e91beeb41bee50e549c47379c69424590d142",
+    "bytes": 2043
+  },
+  {
+    "label": "browser-plugin.json",
+    "source": "/home/yun/tmp/codex-linux-app-proof/upstream/codex-desktop-linux/codex-app/resources/plugins/openai-bundled/plugins/browser/.codex-plugin/plugin.json",
+    "sha256": "9e4993b8b54abac048a91049f1e1361e0b20e1dbc3ad70ddbc4129734424c732",
+    "bytes": 2185
+  },
+  {
+    "label": "computer-use-plugin.json",
+    "source": "/home/yun/tmp/codex-linux-app-proof/upstream/codex-desktop-linux/codex-app/resources/plugins/openai-bundled/plugins/computer-use/.codex-plugin/plugin.json",
+    "sha256": "31432cde0f014ab7309a007789c061850dfc37d3133abccaa4969739a3e3b72f",
+    "bytes": 1315
+  },
+  {
+    "label": "computer-use-mcp.json",
+    "source": "/home/yun/tmp/codex-linux-app-proof/upstream/codex-desktop-linux/codex-app/resources/plugins/openai-bundled/plugins/computer-use/.mcp.json",
+    "sha256": "0eecb6451ffe3e6d963387105f32abbae19adb65db543dcaf3eb75171a992d7f",
+    "bytes": 145
+  },
+  {
+    "label": "extension-id.json",
+    "source": "/home/yun/tmp/codex-linux-app-proof/upstream/codex-desktop-linux/codex-app/resources/plugins/openai-bundled/plugins/chrome/scripts/extension-id.json",
+    "sha256": "9c10ac0bb10b0fdb853685bcd859943570e555ff3cf86731258a3e55a3c73594",
+    "bytes": 108
+  },
+  {
+    "label": "build-info.json",
+    "source": "/home/yun/tmp/codex-linux-app-proof/upstream/codex-desktop-linux/codex-app/.codex-linux/build-info.json",
+    "sha256": "240fe06fe4e0d517e7bd962108d864d886ae75a7160253b15b1ea0ceb024af67",
+    "bytes": 1614
+  },
+  {
+    "label": "patch-report.json",
+    "source": "/home/yun/tmp/codex-linux-app-proof/upstream/codex-desktop-linux/codex-app/.codex-linux/patch-report.json",
+    "sha256": "d4988d0817a1acde8ace040261c63154fcf1508b45da4c717ed2cc2b5d868d1b",
+    "bytes": 17815
+  },
+  {
+    "label": "linux-features-staged.json",
+    "source": "/home/yun/tmp/codex-linux-app-proof/upstream/codex-desktop-linux/codex-app/.codex-linux/linux-features-staged.json",
+    "sha256": "59900d9ce8c7e8584f333f9b4b088b895745592c5402653b22b0cf1d5e9c555e",
+    "bytes": 60
+  },
+  {
+    "label": "process-evidence.txt",
+    "source": "/home/yun/tmp/codex-linux-app-proof/.gjc/state/team/execute-the-approved-ralplan-q-c4bf70ad/worktrees/worker-3/evidence/gui/process-evidence.txt",
+    "sha256": "7511cbdbb6239acf1c6d5e0ac81fe8633f85e5a5ee4f3f1e99dfb1e8601dcbd6",
+    "bytes": 9052
+  },
+  {
+    "label": "interactive-qa-summary.json",
+    "source": "/home/yun/tmp/codex-linux-app-proof/.gjc/state/team/execute-the-approved-ralplan-q-c4bf70ad/worktrees/worker-3/evidence/reports/interactive-qa-summary.json",
+    "sha256": "6fa6d1ce7093b23c1cc8a85924efcbb2ab4bb698350492861d22299168c10c3f",
+    "bytes": 1350
+  },
+  {
+    "label": "final-validation.md",
+    "source": "/home/yun/tmp/codex-linux-app-proof/.gjc/state/team/execute-the-approved-ralplan-q-c4bf70ad/worktrees/worker-3/reports/final-validation.md",
+    "sha256": "d6b35acaa25b7836f720ababb7687a05d9cca98920439e53597dd284e3ba0a22",
+    "bytes": 7044
+  }
+]

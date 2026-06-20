@@ -1,0 +1,61 @@
+{
+  "platform": "linux",
+  "running": true,
+  "processes": [
+    {
+      "pid": 431002,
+      "process_name": "chrome",
+      "command": "chrome"
+    },
+    {
+      "pid": 431021,
+      "process_name": "chrome",
+      "command": "chrome"
+    },
+    {
+      "pid": 431022,
+      "process_name": "chrome",
+      "command": "chrome"
+    },
+    {
+      "pid": 431062,
+      "process_name": "chrome",
+      "command": "chrome"
+    },
+    {
+      "pid": 431064,
+      "process_name": "chrome",
+      "command": "chrome"
+    },
+    {
+      "pid": 431083,
+      "process_name": "chrome",
+      "command": "chrome"
+    },
+    {
+      "pid": 431146,
+      "process_name": "chrome",
+      "command": "chrome"
+    },
+    {
+      "pid": 431174,
+      "process_name": "chrome",
+      "command": "chrome"
+    },
+    {
+      "pid": 431177,
+      "process_name": "chrome",
+      "command": "chrome"
+    },
+    {
+      "pid": 431248,
+      "process_name": "chrome",
+      "command": "chrome"
+    },
+    {
+      "pid": 431582,
+      "process_name": "chrome",
+      "command": "chrome"
+    }
+  ]
+}

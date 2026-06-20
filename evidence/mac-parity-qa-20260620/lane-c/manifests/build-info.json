@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-06-20T14:30:25.004Z",
+  "appIdentity": {
+    "id": "codex-desktop",
+    "displayName": "Codex Desktop"
+  },
+  "upstreamDmg": {
+    "fileName": "Codex.dmg",
+    "sizeBytes": 520180841,
+    "sha256": "7de4cce5ec6e39478b9f0630e2b9257aadd1d02dd6a0fdc00c2ecdf0f536022d",
+    "appVersion": "26.616.41845"
+  },
+  "electronVersion": "42.1.0",
+  "source": {
+    "commit": "9125911c8347c35177dfc76e2f5bce2b8b2e41d4",
+    "shortCommit": "9125911c8347",
+    "version": "0.8.2",
+    "branch": "main",
+    "remote": "https://github.com/ilysenko/codex-desktop-linux.git",
+    "commitUrl": "https://github.com/ilysenko/codex-desktop-linux/commit/9125911c8347c35177dfc76e2f5bce2b8b2e41d4",
+    "describe": "9125911-dirty",
+    "dirty": true,
+    "provenance": "git"
+  },
+  "linuxTarget": {
+    "summary": "ubuntu:24.04/deb:ubuntu+gnome",
+    "distro": {
+      "id": "ubuntu",
+      "idLike": [
+        "debian"
+      ],
+      "versionId": "24.04",
+      "versionMajor": 24,
+      "prettyName": "Ubuntu 24.04.4 LTS"
+    },
+    "packageFormat": "deb",
+    "packageManager": "apt",
+    "arch": "x64",
+    "desktop": {
+      "raw": "ubuntu:GNOME",
+      "tokens": [
+        "ubuntu",
+        "gnome"
+      ]
+    },
+    "sessionType": "wayland",
+    "wayland": true,
+    "x11": true
+  },
+  "packageProfile": {
+    "id": "debian-family",
+    "label": "Debian / Ubuntu / Pop!_OS / Mint / Elementary",
+    "packageManager": "apt",
+    "format": ".deb",
+    "notes": "Managed Node.js runtime is bundled; no distro Node.js package is required"
+  },
+  "linuxFeatures": {
+    "enabled": []
+  }
+}

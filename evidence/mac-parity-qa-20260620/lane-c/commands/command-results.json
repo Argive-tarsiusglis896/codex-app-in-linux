@@ -1,0 +1,35 @@
+{
+  "installed-browsers": {
+    "cmd": [
+      "node",
+      "/home/yun/tmp/codex-linux-app-proof/upstream/codex-desktop-linux/codex-app/resources/plugins/openai-bundled/plugins/chrome/scripts/installed-browsers.js",
+      "--json"
+    ],
+    "cwd": "/home/yun/tmp/codex-linux-app-proof/upstream/codex-desktop-linux/codex-app/resources/plugins/openai-bundled/plugins/chrome/scripts",
+    "returncode": 0,
+    "stdout": "{\n  \"platform\": \"linux\",\n  \"default_browser\": {\n    \"source\": \"xdg-settings\",\n    \"desktop_file\": \"google-chrome.desktop\"\n  },\n  \"installed_browsers\": [\n    {\n      \"name\": \"Google Chrome\",\n      \"command\": \"google-chrome\",\n      \"path\": \"/usr/bin/google-chrome\",\n      \"bundle_id\": \"com.google.Chrome\",\n      \"version\": null\n    }\n  ]\n}\n",
+    "stderr": ""
+  },
+  "chrome-is-running": {
+    "cmd": [
+      "node",
+      "/home/yun/tmp/codex-linux-app-proof/upstream/codex-desktop-linux/codex-app/resources/plugins/openai-bundled/plugins/chrome/scripts/chrome-is-running.js",
+      "--json"
+    ],
+    "cwd": "/home/yun/tmp/codex-linux-app-proof/upstream/codex-desktop-linux/codex-app/resources/plugins/openai-bundled/plugins/chrome/scripts",
+    "returncode": 0,
+    "stdout": "{\n  \"platform\": \"linux\",\n  \"running\": true,\n  \"processes\": [\n    {\n      \"pid\": 431002,\n      \"process_name\": \"chrome\",\n      \"command\": \"chrome\"\n    },\n    {\n      \"pid\": 431021,\n      \"process_name\": \"chrome\",\n      \"command\": \"chrome\"\n    },\n    {\n      \"pid\": 431022,\n      \"process_name\": \"chrome\",\n      \"command\": \"chrome\"\n    },\n    {\n      \"pid\": 431062,\n      \"process_name\": \"chrome\",\n      \"command\": \"chrome\"\n    },\n    {\n      \"pid\": 431064,\n      \"process_name\": \"chrome\",\n      \"command\": \"chrome\"\n    },\n    {\n      \"pid\": 431083,\n      \"process_name\": \"chrome\",\n      \"command\": \"chrome\"\n    },\n    {\n      \"pid\": 431146,\n      \"process_name\": \"chrome\",\n      \"command\": \"chrome\"\n    },\n    {\n      \"pid\": 431174,\n      \"process_name\": \"chrome\",\n      \"command\": \"chrome\"\n    },\n    {\n      \"pid\": 431177,\n      \"process_name\": \"chrome\",\n      \"command\": \"chrome\"\n    },\n    {\n      \"pid\": 431248,\n      \"process_name\": \"chrome\",\n      \"command\": \"chrome\"\n    },\n    {\n      \"pid\": 431582,\n      \"process_name\": \"chrome\",\n      \"command\": \"chrome\"\n    }\n  ]\n}\n",
+    "stderr": ""
+  },
+  "native-host-disposable-home": {
+    "cmd": [
+      "node",
+      "/home/yun/tmp/codex-linux-app-proof/upstream/codex-desktop-linux/codex-app/resources/plugins/openai-bundled/plugins/chrome/scripts/check-native-host-manifest.js",
+      "--json"
+    ],
+    "cwd": "/home/yun/tmp/codex-linux-app-proof/upstream/codex-desktop-linux/codex-app/resources/plugins/openai-bundled/plugins/chrome/scripts",
+    "returncode": 1,
+    "stdout": "{\n  \"manifestPath\": \"/home/yun/tmp/codex-linux-app-proof/.gjc/state/team/execute-the-approved-ralplan-q-c4bf70ad/worktrees/worker-3/evidence/mac-parity-qa-20260620/lane-c/disposable-home/.config/google-chrome/NativeMessagingHosts/com.openai.codexextension.json\",\n  \"registryKey\": null,\n  \"registryManifestPath\": null,\n  \"expectedHostName\": \"com.openai.codexextension\",\n  \"expectedExtensionId\": \"hehggadaopoacecdllhhajmbjkdcmajg\",\n  \"expectedOrigin\": \"chrome-extension://hehggadaopoacecdllhhajmbjkdcmajg/\",\n  \"exists\": false,\n  \"correct\": false,\n  \"problem\": \"Native host manifest does not exist: /home/yun/tmp/codex-linux-app-proof/.gjc/state/team/execute-the-approved-ralplan-q-c4bf70ad/worktrees/worker-3/evidence/mac-parity-qa-20260620/lane-c/disposable-home/.config/google-chrome/NativeMessagingHosts/com.openai.codexextension.json\"\n}\n",
+    "stderr": ""
+  }
+}

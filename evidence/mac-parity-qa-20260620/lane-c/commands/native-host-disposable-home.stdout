@@ -1,0 +1,11 @@
+{
+  "manifestPath": "/home/yun/tmp/codex-linux-app-proof/.gjc/state/team/execute-the-approved-ralplan-q-c4bf70ad/worktrees/worker-3/evidence/mac-parity-qa-20260620/lane-c/disposable-home/.config/google-chrome/NativeMessagingHosts/com.openai.codexextension.json",
+  "registryKey": null,
+  "registryManifestPath": null,
+  "expectedHostName": "com.openai.codexextension",
+  "expectedExtensionId": "hehggadaopoacecdllhhajmbjkdcmajg",
+  "expectedOrigin": "chrome-extension://hehggadaopoacecdllhhajmbjkdcmajg/",
+  "exists": false,
+  "correct": false,
+  "problem": "Native host manifest does not exist: /home/yun/tmp/codex-linux-app-proof/.gjc/state/team/execute-the-approved-ralplan-q-c4bf70ad/worktrees/worker-3/evidence/mac-parity-qa-20260620/lane-c/disposable-home/.config/google-chrome/NativeMessagingHosts/com.openai.codexextension.json"
+}
