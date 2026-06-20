@@ -2,28 +2,31 @@
 
 ## Result
 
-PASS for local non-system proof: the `the wrapper project` wrapper built a Linux Electron Codex app from a frozen upstream Codex DMG, and the generated app started on Linux with Electron renderer processes and a loopback webview server.
+PASS for local non-system proof: the wrapper built a Linux Electron Codex app from the latest observed upstream Codex DMG (`26.616.41845`), and the generated app started on Linux with Electron renderer processes and a loopback webview server.
 
-Screenshot capture was attempted but blocked by the GNOME/Wayland session (`org.freedesktop.DBus.Error.AccessDenied`) and X root capture failed with `BadMatch`. Functional visual/manual interaction beyond launch was therefore not completed in this headless/tool-controlled pass.
+The latest DMG required a small local wrapper compatibility patch for upstream drift in tray setup detection and the subagent metadata webview bundle pattern. The compatibility diff is recorded at `evidence/reports/wrapper-latest-compat.patch`.
+
+Screenshot capture was not rerun in this latest smoke pass; the prior GNOME/Wayland proof attempt was blocked by `org.freedesktop.DBus.Error.AccessDenied` and X root capture failed with `BadMatch`. Functional visual/manual interaction beyond launch remains incomplete in this headless/tool-controlled pass.
 
 ## Source and artifact pinning
 
 - Wrapper repo: `<wrapper-source-url>`
 - Wrapper commit used for successful build: `9125911c8347c35177dfc76e2f5bce2b8b2e41d4`
 - Upstream DMG URL: `https://persistent.oaistatic.com/codex-app-prod/Codex.dmg`
-- DMG size: `486144300`
-- DMG SHA256: `31d8e2666a0895a830df0832dc4083ae82a6e9bd26603141c0293acea6618211`
-- Upstream app version from build-info: `26.611.62324`
+- DMG size: `520180841`
+- DMG SHA256: `7de4cce5ec6e39478b9f0630e2b9257aadd1d02dd6a0fdc00c2ecdf0f536022d`
+- Upstream app version from build-info: `26.616.41845`
 - Electron version from build-info: `42.1.0`
 - Target: Ubuntu 24.04.4 LTS, x64, GNOME Wayland, `.deb` family profile
+- Wrapper compatibility patch: `evidence/reports/wrapper-latest-compat.patch`
 
 ## Commands actually used for successful proof
 
 Allowed non-system proof path:
 
 ```bash
-git clone <wrapper-source-url> upstream/codex-linux-wrapper
-# frozen DMG was downloaded by ranged HTTPS and checksum recorded
+git clone <wrapper-source-url> upstream/codex-desktop-linux
+# latest DMG was downloaded separately and checksum recorded
 make build-app DMG=/home/yun/tmp/codex-linux-app-proof/evidence/upstream/Codex.dmg
 ./codex-app/start.sh
 ```
@@ -32,9 +35,10 @@ No `sudo`, `pkexec`, package manager, service enablement, native package install
 
 ## Build evidence
 
-- Generated app directory exists: `upstream/codex-linux-wrapper/codex-app/`
+- Generated app directory exists: `upstream/codex-desktop-linux/codex-app/`
 - Build metadata copied to `evidence/build/build-info.json`
 - Patch report copied to `evidence/build/patch-report.json`
+- Latest upgrade summary copied to `evidence/reports/latest-upgrade-summary.json`
 - Build output showed:
   - system dependencies found using `7z`
   - provided frozen DMG used
@@ -71,11 +75,12 @@ This proves the generated Linux app launches its local UI server and Electron ru
 Completed:
 
 - Audit gate and allowlist/denylist.
-- Frozen upstream DMG checksum.
+- Latest upstream DMG checksum.
 - Local non-system build.
 - Generated app launch smoke.
 - Loopback-only webview server check.
 - Electron process tree check.
+- Required upstream patch validation after local compatibility patch.
 
 Not completed:
 

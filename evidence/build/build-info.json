@@ -1,15 +1,15 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-06-18T07:13:14.881Z",
+  "generatedAt": "2026-06-20T11:46:05.366Z",
   "appIdentity": {
     "id": "codex-desktop",
     "displayName": "Codex Desktop"
   },
   "upstreamDmg": {
     "fileName": "Codex.dmg",
-    "sizeBytes": 486144300,
-    "sha256": "31d8e2666a0895a830df0832dc4083ae82a6e9bd26603141c0293acea6618211",
-    "appVersion": "26.611.62324"
+    "sizeBytes": 520180841,
+    "sha256": "7de4cce5ec6e39478b9f0630e2b9257aadd1d02dd6a0fdc00c2ecdf0f536022d",
+    "appVersion": "26.616.41845"
   },
   "electronVersion": "42.1.0",
   "source": {
@@ -17,10 +17,10 @@
     "shortCommit": "9125911c8347",
     "version": "0.8.2",
     "branch": "main",
-    "remote": "<wrapper-source-url>",
-    "commitUrl": "<wrapper-source-url>/commit/9125911c8347c35177dfc76e2f5bce2b8b2e41d4",
-    "describe": "9125911",
-    "dirty": false,
+    "remote": "https://github.com/ilysenko/codex-desktop-linux.git",
+    "commitUrl": "https://github.com/ilysenko/codex-desktop-linux/commit/9125911c8347c35177dfc76e2f5bce2b8b2e41d4",
+    "describe": "9125911-dirty",
+    "dirty": true,
     "provenance": "git"
   },
   "linuxTarget": {

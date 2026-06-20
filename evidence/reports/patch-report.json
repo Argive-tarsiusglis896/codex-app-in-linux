@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-06-18T07:13:01.202Z",
-  "target": "/tmp/tmp.S4l73mI0xc/app-extracted/.vite/build/main-DLo8G5hp.js",
-  "mainBundle": "main-DLo8G5hp.js",
+  "generatedAt": "2026-06-20T11:45:39.572Z",
+  "target": "/tmp/tmp.2Q2D0HvwPK/app-extracted/.vite/build/main-CXkxd7xB.js",
+  "mainBundle": "main-CXkxd7xB.js",
   "iconAsset": "app-D0g8sCle.png",
   "desktopName": "codex-desktop.desktop",
   "linuxTarget": {
@@ -223,11 +223,16 @@
     },
     {
       "name": "linux-computer-use-plugin-gate",
-      "status": "applied",
+      "status": "skipped-optional",
+      "reason": "Patch 'linux-computer-use-plugin-gate' threw: Required Linux Computer Use plugin gate patch failed: could not enable bundled Computer Use on Linux",
       "phase": "main-bundle",
       "targetSummary": "all-linux",
       "ciPolicy": "optional",
-      "sourceKind": "core"
+      "sourceKind": "core",
+      "error": true,
+      "warnings": [
+        "WARN: Patch 'linux-computer-use-plugin-gate' threw: Required Linux Computer Use plugin gate patch failed: could not enable bundled Computer Use on Linux"
+      ]
     },
     {
       "name": "linux-chrome-plugin-auto-install",
@@ -239,11 +244,15 @@
     },
     {
       "name": "browser-use-node-repl-approval",
-      "status": "applied",
+      "status": "skipped-optional",
+      "reason": "WARN: Could not find Browser Use node_repl config insertion point — skipping node_repl approval patch",
       "phase": "main-bundle",
       "targetSummary": "all-linux",
       "ciPolicy": "optional",
-      "sourceKind": "core"
+      "sourceKind": "core",
+      "warnings": [
+        "WARN: Could not find Browser Use node_repl config insertion point — skipping node_repl approval patch"
+      ]
     },
     {
       "name": "linux-browser-use-route-liveness",
@@ -295,11 +304,15 @@
     },
     {
       "name": "linux-settings-persistence",
-      "status": "applied",
+      "status": "skipped-optional",
+      "reason": "WARN: Could not find Linux settings state file marker — skipping settings persistence patch",
       "phase": "main-bundle",
       "targetSummary": "all-linux",
       "ciPolicy": "optional",
-      "sourceKind": "core"
+      "sourceKind": "core",
+      "warnings": [
+        "WARN: Could not find Linux settings state file marker — skipping settings persistence patch"
+      ]
     },
     {
       "name": "linux-launch-actions",
@@ -350,11 +363,15 @@
     },
     {
       "name": "linux-chrome-native-host-runtime",
-      "status": "applied",
+      "status": "skipped-optional",
+      "reason": "WARN: Could not identify Chrome native host runtime resolver shape — skipping Linux runtime path patch",
       "phase": "extracted-app",
       "targetSummary": "all-linux",
       "ciPolicy": "optional",
-      "sourceKind": "core"
+      "sourceKind": "core",
+      "warnings": [
+        "WARN: Could not identify Chrome native host runtime resolver shape — skipping Linux runtime path patch"
+      ]
     },
     {
       "name": "automation-schedule-multi-time-rrule",
@@ -382,11 +399,15 @@
     },
     {
       "name": "browser-annotation-screenshot",
-      "status": "applied",
+      "status": "applied-with-warnings",
+      "reason": "WARN: Could not find browser annotation screenshot markers — skipping screenshot marker patch",
       "phase": "extracted-app",
       "targetSummary": "all-linux",
       "ciPolicy": "optional",
-      "sourceKind": "core"
+      "sourceKind": "core",
+      "warnings": [
+        "WARN: Could not find browser annotation screenshot markers — skipping screenshot marker patch"
+      ]
     },
     {
       "name": "linux-app-sunset-gate",
@@ -490,13 +511,7 @@
       "phase": "webview-asset",
       "targetSummary": "all-linux",
       "ciPolicy": "optional",
-      "sourceKind": "core",
-      "strategies": [
-        {
-          "group": "rate-limit-footer",
-          "strategy": "upstream-latest"
-        }
-      ]
+      "sourceKind": "core"
     },
     {
       "name": "subagent-nickname-metadata-shape",
@@ -556,11 +571,15 @@
     },
     {
       "name": "linux-chat-search-hydration",
-      "status": "applied",
+      "status": "skipped-optional",
+      "reason": "WARN: Could not find chat search result selection cache — skipping Linux chat search hydration patch",
       "phase": "webview-asset",
       "targetSummary": "all-linux",
       "ciPolicy": "optional",
-      "sourceKind": "core"
+      "sourceKind": "core",
+      "warnings": [
+        "WARN: Could not find chat search result selection cache — skipping Linux chat search hydration patch"
+      ]
     },
     {
       "name": "linux-computer-use-ui-availability",

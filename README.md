@@ -31,11 +31,11 @@ Tested on Ubuntu 24.04.4 LTS / GNOME Wayland / x64.
 | Generated Electron app launch | Passed |
 | Webview server | Passed on `127.0.0.1:5175` |
 | Electron process tree | Passed |
-| Codex CLI app-server handshake | Passed |
+| Codex CLI app-server handshake | Not rerun in latest smoke |
 | Native install / updater / service | Not used |
 | Login + project/thread manual QA | Still recommended |
 
-Smoke result:
+Smoke result (latest, 2026-06-20):
 
 ```text
 http://127.0.0.1:5175/ -> HTTP 200
@@ -52,7 +52,7 @@ git checkout 9125911c8347c35177dfc76e2f5bce2b8b2e41d4
 
 # Download Codex.dmg separately, then verify:
 sha256sum /path/to/Codex.dmg
-# expected: 31d8e2666a0895a830df0832dc4083ae82a6e9bd26603141c0293acea6618211
+# latest expected: 7de4cce5ec6e39478b9f0630e2b9257aadd1d02dd6a0fdc00c2ecdf0f536022d
 
 make build-app DMG=/absolute/path/to/Codex.dmg
 ./codex-app/start.sh
@@ -72,12 +72,12 @@ PY
 
 | Field | Value |
 | --- | --- |
-| Wrapper commit | `9125911c8347c35177dfc76e2f5bce2b8b2e41d4` |
+| Wrapper commit | `9125911c8347c35177dfc76e2f5bce2b8b2e41d4` + local latest-DMG compatibility patch |
 | Wrapper version | `0.8.2` |
-| Codex app version | `26.611.62324` |
+| Codex app version | `26.616.41845` |
 | Electron version | `42.1.0` |
-| DMG size | `486144300` bytes |
-| DMG SHA256 | `31d8e2666a0895a830df0832dc4083ae82a6e9bd26603141c0293acea6618211` |
+| DMG size | `520180841` bytes |
+| DMG SHA256 | `7de4cce5ec6e39478b9f0630e2b9257aadd1d02dd6a0fdc00c2ecdf0f536022d` |
 
 ## Evidence
 
@@ -86,6 +86,8 @@ reports/final-validation.md              Main validation report
 reports/worker-*-wrapper-audit.md        Audit notes
 evidence/build/build-info.json           Generated app metadata
 evidence/build/patch-report.json         Wrapper patch report
+evidence/reports/wrapper-latest-compat.patch Local wrapper compatibility diff
+evidence/reports/latest-upgrade-summary.json Latest upgrade summary
 evidence/gui/process-evidence.txt        Electron/webview process evidence
 evidence/gui/webview-smoke-result.txt    HTTP 200 webview smoke result
 assets/codex-app-linux-running.png       Screenshot
@@ -124,7 +126,7 @@ cd /path/to/codex-linux-wrapper
 
 ## Remaining QA
 
-Completed: build, launch smoke, loopback webview, Electron process tree, Codex CLI handshake.
+Completed: build, launch smoke, loopback webview, Electron process tree, Codex app-server process evidence.
 
 Still recommended: sign in, open a disposable project, create a thread, test shell/file approval UI.
 

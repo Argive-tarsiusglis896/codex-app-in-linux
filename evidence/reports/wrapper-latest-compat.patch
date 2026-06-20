@@ -1,0 +1,97 @@
+diff --git a/scripts/patch-linux-window-ui.test.js b/scripts/patch-linux-window-ui.test.js
+index 97f37ca..29e5c15 100644
+--- a/scripts/patch-linux-window-ui.test.js
++++ b/scripts/patch-linux-window-ui.test.js
+@@ -2346,6 +2346,23 @@ test("uses collision-proof Linux tray icon variables when Electron alias is r",
+   );
+ });
+ 
++test("preserves latest templated tray icons and running icon factories", () => {
++  const iconPathExpression = "process.resourcesPath+`/../content/webview/assets/app-test.png`";
++  const source = [
++    "let a=require(`electron`),s=require(`node:path`);",
++    "async function H5(e){return process.platform!==`win32`&&process.platform!==`darwin`?null:(z5=!0,L5??R5??(R5=(async()=>{let t=await W5(e.appBrand,e.repoRoot),n=new a.Tray(t.defaultIcon);return n})()))}",
++    "async function W5(e,n){if(process.platform===`darwin`){let e=[...a.app.isPackaged?[(0,s.join)(process.resourcesPath,`codexTemplate.png`)]:[],(0,s.join)(n,`electron`,`src`,`icons`,`codexTemplate.png`)];for(let t of e){let e=a.nativeImage.createFromPath(t);if(!e.isEmpty())return e.setTemplateImage(!0),{defaultIcon:e,chronicleRunningIcon:G5(e)}}let t=await a.app.getFileIcon(process.execPath,{size:`normal`});return{defaultIcon:t,chronicleRunningIcon:G5(t)}}let r=[];for(let e of r){let t=a.nativeImage.createFromPath(e);if(!t.isEmpty())return{defaultIcon:t,chronicleRunningIcon:G5(t)}}let i=await a.app.getFileIcon(process.execPath,{size:`normal`});return{defaultIcon:i,chronicleRunningIcon:G5(i)}}",
++    "let ye=async()=>{O=!0;try{await H5({appBrand:r.et(),repoRoot:j.repoRoot})}catch(e){O=!1}};E&&ye();",
++  ].join("");
++
++  const patched = applyPatchTwice(applyLinuxTrayPatch, source, iconPathExpression);
++
++  assert.doesNotMatch(patched, /return[a-zA-Z_$][\w$]*\.setTemplateImage/);
++  assert.match(patched, /return e\.setTemplateImage\(!0\),\{defaultIcon:e,chronicleRunningIcon:G5\(e\)\}/);
++  assert.match(patched, /chronicleRunningIcon:G5\(__codexLinuxTrayIcon\)/);
++  assert.match(patched, /\(E\|\|process\.platform===`linux`&&\(typeof codexLinuxIsTrayEnabled!==`function`\|\|codexLinuxIsTrayEnabled\(\)\)\)&&ye\(\);/);
++});
++
+ test("adds Linux tray support even when About dialog already uses the bundled icon path", () => {
+   const iconPathExpression = "process.resourcesPath+`/../content/webview/assets/app-test.png`";
+   const packagedTrayIconPathExpression = "process.resourcesPath+`/../.codex-linux/codex-desktop-tray.png`";
+diff --git a/scripts/patches/core/all-linux/webview/subagent-metadata/patch.js b/scripts/patches/core/all-linux/webview/subagent-metadata/patch.js
+index 700fb4e..942dc9f 100644
+--- a/scripts/patches/core/all-linux/webview/subagent-metadata/patch.js
++++ b/scripts/patches/core/all-linux/webview/subagent-metadata/patch.js
+@@ -10,7 +10,7 @@ module.exports = [
+     phase: "webview-asset",
+     order: 1050,
+     ciPolicy: "required-upstream",
+-    pattern: /^app-server-manager-signals-.*\.js$/,
++    pattern: /^(app-server-manager-signals|use-host-config)-.*\.js$/,
+     missingDescription: "app-server manager webview bundle",
+     skipDescription: "subagent nickname metadata shape patch",
+     apply: applySubagentNicknameMetadataPatch,
+diff --git a/scripts/patches/main-process/tray.js b/scripts/patches/main-process/tray.js
+index caac435..e57c973 100644
+--- a/scripts/patches/main-process/tray.js
++++ b/scripts/patches/main-process/tray.js
+@@ -27,7 +27,7 @@ function isTrayFactoryFunction(source, functionName) {
+ 
+ function findDynamicTraySetup(source) {
+   const setupRegex =
+-    /let ([A-Za-z_$][\w$]*)=async\(\)=>\{[A-Za-z_$][\w$]*=!0;try\{await ([A-Za-z_$][\w$]*)\(\{buildFlavor:/g;
++    /let ([A-Za-z_$][\w$]*)=async\(\)=>\{[A-Za-z_$][\w$]*=!0;try\{await ([A-Za-z_$][\w$]*)\(\{/g;
+   let match;
+   while ((match = setupRegex.exec(source)) != null) {
+     const [, setupFn, factoryFn] = match;
+@@ -114,6 +114,8 @@ function applyLinuxTrayPatch(currentSource, iconPathExpression) {
+       `for(let e of o){let t=${electronVar}.nativeImage.createFromPath(e);if(!t.isEmpty())return{defaultIcon:t,chronicleRunningIcon:null}}return{defaultIcon:await ${electronVar}.app.getFileIcon(process.execPath,{size:process.platform===\`win32\`?\`small\`:\`normal\`}),chronicleRunningIcon:null}}`;
+     const trayIconPatch =
+       `for(let e of o){let t=${electronVar}.nativeImage.createFromPath(e);if(!t.isEmpty())return{defaultIcon:t,chronicleRunningIcon:null}}if(process.platform===\`linux\`){let __codexLinuxTrayIcon=${electronVar}.nativeImage.createFromPath(${packagedTrayIconPathExpression});if(!__codexLinuxTrayIcon.isEmpty())return{defaultIcon:__codexLinuxTrayIcon,chronicleRunningIcon:null};let __codexLinuxAppIcon=${electronVar}.nativeImage.createFromPath(${packagedAppIconPathExpression});if(!__codexLinuxAppIcon.isEmpty())return{defaultIcon:__codexLinuxAppIcon,chronicleRunningIcon:null};let __codexLinuxUpstreamTrayIcon=${electronVar}.nativeImage.createFromPath(${iconPathExpression});if(!__codexLinuxUpstreamTrayIcon.isEmpty())return{defaultIcon:__codexLinuxUpstreamTrayIcon,chronicleRunningIcon:null}}return{defaultIcon:await ${electronVar}.app.getFileIcon(process.execPath,{size:process.platform===\`win32\`?\`small\`:\`normal\`}),chronicleRunningIcon:null}}`;
++    const trayIconFallbackRegex =
++      /for\(let ([A-Za-z_$][\w$]*) of ([A-Za-z_$][\w$]*)\)\{let ([A-Za-z_$][\w$]*)=([A-Za-z_$][\w$]*)\.nativeImage\.createFromPath\(\1\);if\(!\3\.isEmpty\(\)\)return\s*(\3\.setTemplateImage\(!0\),)?\{defaultIcon:\3,chronicleRunningIcon:([^}]+)\}\}let ([A-Za-z_$][\w$]*)=await \4\.app\.getFileIcon\(process\.execPath,\{size:(?:process\.platform===`win32`\?`small`:`normal`|`normal`)\}\);return\{defaultIcon:\7,chronicleRunningIcon:([^}]+)\}\}/;
+     if (
+       patchedSource.includes(`nativeImage.createFromPath(${packagedTrayIconPathExpression})`) ||
+       patchedSource.includes(`nativeImage.createFromPath(${packagedAppIconPathExpression})`)
+@@ -121,13 +123,27 @@ function applyLinuxTrayPatch(currentSource, iconPathExpression) {
+       // Already patched.
+     } else if (patchedSource.includes(trayIconNeedle)) {
+       patchedSource = patchedSource.replace(trayIconNeedle, trayIconPatch);
+-    } else if (
+-      /for\(let ([A-Za-z_$][\w$]*) of ([A-Za-z_$][\w$]*)\)\{let ([A-Za-z_$][\w$]*)=([A-Za-z_$][\w$]*)\.nativeImage\.createFromPath\(\1\);if\(!\3\.isEmpty\(\)\)return\{defaultIcon:\3,chronicleRunningIcon:null\}\}return\{defaultIcon:await \4\.app\.getFileIcon\(process\.execPath,\{size:process\.platform===`win32`\?`small`:`normal`\}\),chronicleRunningIcon:null\}\}/.test(patchedSource)
+-    ) {
++    } else if (trayIconFallbackRegex.test(patchedSource)) {
+       patchedSource = patchedSource.replace(
+-        /for\(let ([A-Za-z_$][\w$]*) of ([A-Za-z_$][\w$]*)\)\{let ([A-Za-z_$][\w$]*)=([A-Za-z_$][\w$]*)\.nativeImage\.createFromPath\(\1\);if\(!\3\.isEmpty\(\)\)return\{defaultIcon:\3,chronicleRunningIcon:null\}\}return\{defaultIcon:await \4\.app\.getFileIcon\(process\.execPath,\{size:process\.platform===`win32`\?`small`:`normal`\}\),chronicleRunningIcon:null\}\}/,
+-        (_match, iconPathVar, candidatesVar, imageVar, electronAlias) =>
+-          `for(let ${iconPathVar} of ${candidatesVar}){let ${imageVar}=${electronAlias}.nativeImage.createFromPath(${iconPathVar});if(!${imageVar}.isEmpty())return{defaultIcon:${imageVar},chronicleRunningIcon:null}}if(process.platform===\`linux\`){let __codexLinuxTrayIcon=${electronAlias}.nativeImage.createFromPath(${packagedTrayIconPathExpression});if(!__codexLinuxTrayIcon.isEmpty())return{defaultIcon:__codexLinuxTrayIcon,chronicleRunningIcon:null};let __codexLinuxAppIcon=${electronAlias}.nativeImage.createFromPath(${packagedAppIconPathExpression});if(!__codexLinuxAppIcon.isEmpty())return{defaultIcon:__codexLinuxAppIcon,chronicleRunningIcon:null};let __codexLinuxUpstreamTrayIcon=${electronAlias}.nativeImage.createFromPath(${iconPathExpression});if(!__codexLinuxUpstreamTrayIcon.isEmpty())return{defaultIcon:__codexLinuxUpstreamTrayIcon,chronicleRunningIcon:null}}return{defaultIcon:await ${electronAlias}.app.getFileIcon(process.execPath,{size:process.platform===\`win32\`?\`small\`:\`normal\`}),chronicleRunningIcon:null}}`,
++        trayIconFallbackRegex,
++        (
++          _match,
++          iconPathVar,
++          candidatesVar,
++          imageVar,
++          electronAlias,
++          candidateTemplatePrefix = "",
++          candidateRunningIcon,
++          fallbackVar,
++          fallbackRunningIcon,
++        ) => {
++          const runningIconFor = (linuxIconVar) =>
++            fallbackRunningIcon.replace(
++              new RegExp(`\\b${escapeRegExp(fallbackVar)}\\b`, "g"),
++              linuxIconVar,
++            );
++          return `for(let ${iconPathVar} of ${candidatesVar}){let ${imageVar}=${electronAlias}.nativeImage.createFromPath(${iconPathVar});if(!${imageVar}.isEmpty())return ${candidateTemplatePrefix}{defaultIcon:${imageVar},chronicleRunningIcon:${candidateRunningIcon}}}if(process.platform===\`linux\`){let __codexLinuxTrayIcon=${electronAlias}.nativeImage.createFromPath(${packagedTrayIconPathExpression});if(!__codexLinuxTrayIcon.isEmpty())return{defaultIcon:__codexLinuxTrayIcon,chronicleRunningIcon:${runningIconFor("__codexLinuxTrayIcon")}};let __codexLinuxAppIcon=${electronAlias}.nativeImage.createFromPath(${packagedAppIconPathExpression});if(!__codexLinuxAppIcon.isEmpty())return{defaultIcon:__codexLinuxAppIcon,chronicleRunningIcon:${runningIconFor("__codexLinuxAppIcon")}};let __codexLinuxUpstreamTrayIcon=${electronAlias}.nativeImage.createFromPath(${iconPathExpression});if(!__codexLinuxUpstreamTrayIcon.isEmpty())return{defaultIcon:__codexLinuxUpstreamTrayIcon,chronicleRunningIcon:${runningIconFor("__codexLinuxUpstreamTrayIcon")}}}let ${fallbackVar}=await ${electronAlias}.app.getFileIcon(process.execPath,{size:\`normal\`});return{defaultIcon:${fallbackVar},chronicleRunningIcon:${fallbackRunningIcon}}}`;
++        },
+       );
+     } else {
+       console.warn("WARN: Could not find tray icon fallback — skipping Linux tray icon patch");

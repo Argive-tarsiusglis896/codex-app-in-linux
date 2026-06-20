@@ -1,0 +1,22 @@
+{
+  "status": "passed-local-build-and-smoke",
+  "latestAppVersion": "26.616.41845",
+  "latestDmgSha256": "7de4cce5ec6e39478b9f0630e2b9257aadd1d02dd6a0fdc00c2ecdf0f536022d",
+  "latestDmgSizeBytes": 520180841,
+  "electronVersion": "42.1.0",
+  "wrapperCommit": "9125911c8347c35177dfc76e2f5bce2b8b2e41d4",
+  "wrapperDirty": true,
+  "wrapperLocalCompatPatch": "evidence/reports/wrapper-latest-compat.patch",
+  "testCoverage": "node --test scripts/patch-linux-window-ui.test.js (276 pass)",
+  "deniedNativeSystemPaths": [
+    "sudo",
+    "pkexec",
+    "package-manager",
+    "systemctl",
+    "native install",
+    "native updater",
+    "service enablement"
+  ],
+  "smoke": "evidence/gui/webview-smoke-result.txt",
+  "processEvidence": "evidence/gui/process-evidence.txt"
+}
