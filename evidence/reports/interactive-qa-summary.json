@@ -1,0 +1,18 @@
+{
+  "overallVerdict": "PASS WITH LIMITATIONS",
+  "startup": "PASS: no Owl binding failure; renderer/app-server live",
+  "accountSession": "PASS: account/read succeeded in logs",
+  "basicChat": "PASS: controlled prompt returned codex-linux-qa-ok; no inputSchema error",
+  "projectWorkspace": "PARTIAL PASS: project menu opens and offers Start from scratch / Use existing folder; file-dialog project selection not exercised",
+  "shellApproval": "PASS: harmless echo command ran and returned codex-linux-shell-ok",
+  "settingsPersistence": "NOT RETESTED via UI in this pass",
+  "chatSearch": "PASS: search found codex-linux-qa-ok without error",
+  "browserUse": "PASS: Browser Use opened example.com and returned Example Domain",
+  "computerUse": "DISABLED: not exposed in current tool surface; no privileged helper install attempted",
+  "chromeNativeHost": "PARTIAL: manifests/extension/host binary configured for Chrome Profile 1, but live extension backend not connected because Chrome not running; Chromium/Brave absent",
+  "knownLogWarnings": [
+    "bundled_plugins_reconcile_failed for Chrome sync runtime path remains a warning",
+    "optional patch drift remains for node_repl approval, settings persistence, Chrome native-host runtime resolver, screenshot markers, chat search hydration"
+  ],
+  "testedAt": "2026-06-20T14:45:51.632089+00:00"
+}

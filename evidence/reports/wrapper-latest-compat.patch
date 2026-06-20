@@ -1,16 +1,19 @@
 diff --git a/scripts/patch-linux-window-ui.test.js b/scripts/patch-linux-window-ui.test.js
-index 97f37ca..19cbe30 100644
+index 97f37ca..6c0a535 100644
 --- a/scripts/patch-linux-window-ui.test.js
 +++ b/scripts/patch-linux-window-ui.test.js
-@@ -110,6 +110,7 @@ const {
+@@ -110,8 +110,10 @@ const {
    optionalDriftFromReport,
    summarizePatchReport,
  } = require("./lib/patch-report.js");
 +const linuxOwlFeatureBindingPatch = require("./patches/core/all-linux/extracted-app/owl-features/patch.js");
  const {
    applyBrowserAnnotationScreenshotPatch,
++  applyLinuxDynamicToolInputSchemaPatch,
    applyLocalEnvironmentActionModalDraftPatch,
-@@ -235,6 +236,27 @@ test("automation schedule asset patch updates workspace-root bundle", () => {
+   applyPersistentRateLimitFooterPatch,
+   applyLinuxAppServerFeatureEnablementPatch,
+@@ -235,6 +237,27 @@ test("automation schedule asset patch updates workspace-root bundle", () => {
      fs.rmSync(tempRoot, { recursive: true, force: true });
    }
  });
@@ -38,7 +41,44 @@ index 97f37ca..19cbe30 100644
 
  test("automation schedule asset patch updates current webview automation bundle", () => {
    const tempRoot = fs.mkdtempSync(path.join(os.tmpdir(), "codex-automation-schedule-current-"));
-@@ -642,6 +664,7 @@ test("default core patch descriptors are grouped and unique", () => {
+@@ -326,6 +349,8 @@ test("subagent nickname metadata patch accepts session metadata shape", () => {
+   assert.match(patched, /`subAgent`in e\?e\.subAgent:`subagent`in e\?e\.subagent:null/);
+   assert.match(patched, /Zl\(e\.agentNickname\)\?\?Zl\(e\.agent_nickname\)\?\?Zl\(B\(e\.source\)\?\.agentNickname\)/);
+
++
++
+   const sandbox = {
+     result: null,
+   };
+@@ -341,6 +366,27 @@ test("subagent nickname metadata patch accepts session metadata shape", () => {
+   });
+ });
+
++test("Linux dynamic tool patch backfills inputSchema before thread start", () => {
++  const source = [
++    "var kh=5e3,Ah=class{dynamicToolsForThreadStartRequests=new Map;constructor(e){this.params=e}",
++    "async buildNewConversationParams(e,t,n,r,i,a,o,s){",
++    "let c={};",
++    "s?.skipDynamicTools||(c={...c,dynamicTools:await this.requestDynamicToolsForThreadStart(a,s?.threadStartKind??`default`)});",
++    "return c",
++    "}",
++    "}",
++  ].join("");
++  const patched = applyPatchTwice(applyLinuxDynamicToolInputSchemaPatch, source);
++
++  assert.match(patched, /function codexLinuxNormalizeDynamicToolInputSchemas/);
++  assert.match(
++    patched,
++    /dynamicTools:codexLinuxNormalizeDynamicToolInputSchemas\(await this\.requestDynamicToolsForThreadStart/,
++  );
++  assert.match(patched, /inputSchema/);
++  assert.match(patched, /input_schema/);
++});
++
+ test("subagent nickname metadata patch accepts current upstream patched aliases", () => {
+   const source = [
+     "function P(e){return e}",
+@@ -642,6 +688,7 @@ test("default core patch descriptors are grouped and unique", () => {
      "linux-native-titlebar",
      "linux-menu",
      "linux-multi-instance-bootstrap-lock",
@@ -46,15 +86,24 @@ index 97f37ca..19cbe30 100644
      "linux-set-icon",
      "linux-resize-repaint",
      "linux-opaque-background",
-@@ -718,6 +741,7 @@ test("default core patch descriptors are grouped and unique", () => {
+@@ -687,6 +734,7 @@ test("default core patch descriptors are grouped and unique", () => {
+     "linux-fast-mode-model-guard",
+     "linux-safe-monospace-font-stack",
+     "subagent-nickname-metadata-shape",
++    "linux-dynamic-tool-input-schema",
+     "local-environment-action-modal-draft",
+     "linux-computer-use-ui-availability",
+     "linux-computer-use-install-flow",
+@@ -718,6 +766,8 @@ test("default core patch descriptors are grouped and unique", () => {
      "linux-opaque-background",
      "linux-avatar-overlay-mouse-passthrough",
      "linux-tray",
 +    "linux-owl-feature-binding-noop",
++    "linux-dynamic-tool-input-schema",
    ]) {
      assert.equal(
        descriptors.find((descriptor) => descriptor.id === id)?.ciPolicy,
-@@ -2346,6 +2370,23 @@ test("uses collision-proof Linux tray icon variables when Electron alias is r",
+@@ -2346,6 +2396,23 @@ test("uses collision-proof Linux tray icon variables when Electron alias is r",
    );
  });
 
@@ -147,3 +196,56 @@ index caac435..e57c973 100644
        );
      } else {
        console.warn("WARN: Could not find tray icon fallback — skipping Linux tray icon patch");
+diff --git a/scripts/patches/webview-assets.js b/scripts/patches/webview-assets.js
+index 0e5024a..8ded4ea 100644
+--- a/scripts/patches/webview-assets.js
++++ b/scripts/patches/webview-assets.js
+@@ -1014,6 +1014,40 @@ function applySubagentNicknameMetadataPatch(currentSource) {
+
+   return patchedSource;
+ }
++function applyLinuxDynamicToolInputSchemaPatch(currentSource) {
++  if (currentSource.includes("codexLinuxNormalizeDynamicToolInputSchemas")) {
++    return currentSource;
++  }
++
++  const helperInsertionNeedle =
++    /(var [A-Za-z_$][\w$]*=5e3,[A-Za-z_$][\w$]*=class\{dynamicToolsForThreadStartRequests=new Map;)/u;
++  const dynamicToolsNeedle =
++    "dynamicTools:await this.requestDynamicToolsForThreadStart(a,s?.threadStartKind??`default`)";
++  if (
++    !helperInsertionNeedle.test(currentSource) ||
++    !currentSource.includes(dynamicToolsNeedle)
++  ) {
++    if (
++      currentSource.includes("requestDynamicToolsForThreadStart") ||
++      currentSource.includes("dynamicTools:")
++    ) {
++      console.warn(
++        "WARN: Could not find dynamic tool inputSchema insertion point — skipping thread/start schema patch",
++      );
++    }
++    return currentSource;
++  }
++
++  const helper =
++    "function codexLinuxNormalizeDynamicToolInputSchemas(e){const t={type:`object`,properties:{},additionalProperties:!0},n=e=>{if(Array.isArray(e))return e.map(n);if(e&&typeof e==`object`){let r={...e};if(r.inputSchema==null){let e=r.schema??r.input_schema??r.parameters;e!=null&&typeof e==`object`?r.inputSchema=e:(typeof r.name==`string`||typeof r.description==`string`)&&(r.inputSchema=t)}for(let e of[`tools`,`definitions`,`dynamicTools`])Array.isArray(r[e])&&(r[e]=r[e].map(n));return r}return e};return n(e)}";
++  return currentSource
++    .replace(helperInsertionNeedle, `${helper}$1`)
++    .replace(
++      dynamicToolsNeedle,
++      "dynamicTools:codexLinuxNormalizeDynamicToolInputSchemas(await this.requestDynamicToolsForThreadStart(a,s?.threadStartKind??`default`))",
++    );
++}
++
+
+ function applyLocalEnvironmentActionModalDraftPatch(currentSource) {
+   if (currentSource.includes("codexLinuxActionDraft")) {
+@@ -1804,6 +1838,7 @@ module.exports = {
+   applyLinuxWindowControlsSafeAreaPatch,
+   applyLinuxSafeMonospaceFontStackPatch,
+   applyLinuxFastModeModelGuardPatch,
++  applyLinuxDynamicToolInputSchemaPatch,
+   applyLocalEnvironmentActionModalDraftPatch,
+   applySubagentNicknameMetadataPatch,
+   patchCommentPreloadBundle,

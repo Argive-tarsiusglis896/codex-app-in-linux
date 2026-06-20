@@ -1,48 +1,85 @@
 {
+  "checkedAt": "2026-06-20T14:45:51.620176+00:00",
   "processes": [
     {
-      "pid": 276624,
-      "cmdline": "/bin/bash /home/yun/tmp/codex-linux-app-proof/upstream/codex-desktop-linux/codex-app/start.sh "
+      "pid": 356011,
+      "cmd": "/bin/bash /home/yun/tmp/codex-linux-app-proof/upstream/codex-desktop-linux/codex-app/start.sh -- --remote-debugging-port=9223 "
     },
     {
-      "pid": 277531,
-      "cmdline": "python3 /home/yun/tmp/codex-linux-app-proof/upstream/codex-desktop-linux/codex-app/.codex-linux/webview-server.py 5175 --bind 127.0.0.1 "
+      "pid": 356951,
+      "cmd": "python3 /home/yun/tmp/codex-linux-app-proof/upstream/codex-desktop-linux/codex-app/.codex-linux/webview-server.py 5175 --bind 127.0.0.1 "
     },
     {
-      "pid": 277684,
-      "cmdline": "/home/yun/tmp/codex-linux-app-proof/upstream/codex-desktop-linux/codex-app/electron --no-sandbox --class=codex-desktop --app-id=codex-desktop --disable-dev-shm-usage --disable-gpu-sandbox --disable-gpu-compositing --ozone-platform-hint=auto --force-renderer-accessibility "
+      "pid": 357104,
+      "cmd": "/home/yun/tmp/codex-linux-app-proof/upstream/codex-desktop-linux/codex-app/electron --no-sandbox --class=codex-desktop --app-id=codex-desktop --disable-dev-shm-usage --disable-gpu-sandbox --disable-gpu-compositing --ozone-platform-hint=auto --force-renderer-accessibility --remote-debugging-port=9223 "
     },
     {
-      "pid": 277691,
-      "cmdline": "/home/yun/tmp/codex-linux-app-proof/upstream/codex-desktop-linux/codex-app/electron --type=zygote --no-zygote-sandbox --no-sandbox "
+      "pid": 357111,
+      "cmd": "/home/yun/tmp/codex-linux-app-proof/upstream/codex-desktop-linux/codex-app/electron --type=zygote --no-zygote-sandbox --no-sandbox "
     },
     {
-      "pid": 277692,
-      "cmdline": "/home/yun/tmp/codex-linux-app-proof/upstream/codex-desktop-linux/codex-app/electron --type=zygote --no-sandbox "
+      "pid": 357112,
+      "cmd": "/home/yun/tmp/codex-linux-app-proof/upstream/codex-desktop-linux/codex-app/electron --type=zygote --no-sandbox "
     },
     {
-      "pid": 277734,
-      "cmdline": "/home/yun/tmp/codex-linux-app-proof/upstream/codex-desktop-linux/codex-app/chrome_crashpad_handler --monitor-self-annotation=ptype=crashpad-handler --no-rate-limit --database=/home/yun/.config/Codex/Crashpad --url=https://f.a.k/e --annotation=_productName=Codex --annotation=_version=26.616.41845 --annotation=lsb-release=Ubuntu 24.04.4 LTS --annotation=plat=Linux --annotation=prod=Electron --annotation=ver=42.1.0 --initial-client-fd=47 --shared-client-connection "
+      "pid": 357153,
+      "cmd": "/home/yun/tmp/codex-linux-app-proof/upstream/codex-desktop-linux/codex-app/chrome_crashpad_handler --monitor-self-annotation=ptype=crashpad-handler --no-rate-limit --database=/home/yun/.config/Codex/Crashpad --url=https://f.a.k/e --annotation=_productName=Codex --annotation=_version=26.616.41845 --annotation=lsb-release=Ubuntu 24.04.4 LTS --annotation=plat=Linux --annotation=prod=Electron --annotation=ver=42.1.0 --initial-client-fd=47 --shared-client-connection "
     },
     {
-      "pid": 277764,
-      "cmdline": "/home/yun/tmp/codex-linux-app-proof/upstream/codex-desktop-linux/codex-app/electron --type=gpu-process --disable-gpu-sandbox --no-sandbox --disable-dev-shm-usage --ozone-platform=wayland --render-node-override=/dev/dri/renderD128 --crashpad-handler-pid=277734 --enable-crash-reporter=a53bcd9b-21bf-4a1a-93e0-37f04dc5f9aa,no_channel --user-data-dir=/home/yun/.config/Codex --gpu-preferences=UAAAAAAAAAAgAQAEAAAAAAAAAAAAAGAAAQAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAYAAAAAAAAABgAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAgAAAAAAAAA --shared-files --field-trial-handle=3,i,8776756361955160250,9878661616880241485,262144 --enable-features=DocumentPolicyIncludeJSCallStacksInCrashReports,PdfUseShowSaveFilePicker --disable-features=DropInputEventsWhilePaintHolding,LocalNetworkAccessChecks,ScreenAIOCREnabled,SpareRendererForSitePerProcess,TraceSiteInstanceGetProcessCreation --variations-seed-version --pseudonymization-salt-handle=7,i,1790365176283689335,377164584121245181,4 --trace-process-track-uuid=3190708988185955192 "
+      "pid": 357189,
+      "cmd": "/home/yun/tmp/codex-linux-app-proof/upstream/codex-desktop-linux/codex-app/electron --type=gpu-process --disable-gpu-sandbox --no-sandbox --disable-dev-shm-usage --ozone-platform=wayland --render-node-override=/dev/dri/renderD128 --crashpad-handler-pid=357153 --enable-crash-reporter=a53bcd9b-21bf-4a1a-93e0-37f04dc5f9aa,no_channel --user-data-dir=/home/yun/.config/Codex --gpu-preferences=UAAAAAAAAAAgAQAEAAAAAAAAAAAAAGAAAQAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAYAAAAAAAAABgAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAgAAAAAAAAA --shared-files --field-trial-handle=3,i,4779554022178234046,6554413097207726697,262144 --enable-features=DocumentPolicyIncludeJSCallStacksInCrashReports,PdfUseShowSaveFilePicker --disable-features=DropInputEventsWhilePaintHolding,LocalNetworkAccessChecks,OwlAuth,OwlAutofillAndPasswords,OwlDownloads,OwlExtensions,OwlOpenAIGoLinks,OwlPermissions,OwlPrinting,OwlWebViewEnhancements,ScreenAIOCREnabled,SpareRendererForSitePerProcess,TraceSiteInstanceGetProcessCreation --variations-seed-version --pseudonymization-salt-handle=7,i,7585683371880614003,16574306691855051377,4 --trace-process-track-uuid=3190708988185955192 "
     },
     {
-      "pid": 277774,
-      "cmdline": "/home/yun/tmp/codex-linux-app-proof/upstream/codex-desktop-linux/codex-app/electron --type=utility --utility-sub-type=network.mojom.NetworkService --lang=en-US --service-sandbox-type=none --no-sandbox --disable-dev-shm-usage --render-node-override=/dev/dri/renderD128 --crashpad-handler-pid=277734 --enable-crash-reporter=a53bcd9b-21bf-4a1a-93e0-37f04dc5f9aa,no_channel --user-data-dir=/home/yun/.config/Codex --standard-schemes=app --secure-schemes=app,sentry-ipc --bypasscsp-schemes=sentry-ipc --cors-schemes=sentry-ipc --fetch-schemes=app,sentry-ipc --streaming-schemes=app --shared-files=v8_context_snapshot_data:100 --field-trial-handle=3,i,8776756361955160250,9878661616880241485,262144 --enable-features=DocumentPolicyIncludeJSCallStacksInCrashReports,PdfUseShowSaveFilePicker --disable-features=DropInputEventsWhilePaintHolding,LocalNetworkAccessChecks,ScreenAIOCREnabled,SpareRendererForSitePerProcess,TraceSiteInstanceGetProcessCreation --variations-seed-version --pseudonymization-salt-handle=7,i,1790365176283689335,377164584121245181,4 --trace-process-track-uuid=3190708989122997041 "
+      "pid": 357197,
+      "cmd": "/home/yun/tmp/codex-linux-app-proof/upstream/codex-desktop-linux/codex-app/electron --type=utility --utility-sub-type=network.mojom.NetworkService --lang=en-US --service-sandbox-type=none --no-sandbox --disable-dev-shm-usage --render-node-override=/dev/dri/renderD128 --crashpad-handler-pid=357153 --enable-crash-reporter=a53bcd9b-21bf-4a1a-93e0-37f04dc5f9aa,no_channel --user-data-dir=/home/yun/.config/Codex --standard-schemes=app --secure-schemes=app,sentry-ipc --bypasscsp-schemes=sentry-ipc --cors-schemes=sentry-ipc --fetch-schemes=app,sentry-ipc --streaming-schemes=app --shared-files=v8_context_snapshot_data:100 --field-trial-handle=3,i,4779554022178234046,6554413097207726697,262144 --enable-features=DocumentPolicyIncludeJSCallStacksInCrashReports,PdfUseShowSaveFilePicker --disable-features=DropInputEventsWhilePaintHolding,LocalNetworkAccessChecks,OwlAuth,OwlAutofillAndPasswords,OwlDownloads,OwlExtensions,OwlOpenAIGoLinks,OwlPermissions,OwlPrinting,OwlWebViewEnhancements,ScreenAIOCREnabled,SpareRendererForSitePerProcess,TraceSiteInstanceGetProcessCreation --variations-seed-version --pseudonymization-salt-handle=7,i,7585683371880614003,16574306691855051377,4 --trace-process-track-uuid=3190708989122997041 "
     },
     {
-      "pid": 277837,
-      "cmdline": "node /home/yun/.npm-global/bin/codex app-server --analytics-default-enabled "
+      "pid": 357261,
+      "cmd": "node /home/yun/.npm-global/bin/codex app-server --analytics-default-enabled "
     },
     {
-      "pid": 277844,
-      "cmdline": "/home/yun/.npm-global/lib/node_modules/@openai/codex/node_modules/@openai/codex-linux-x64/vendor/x86_64-unknown-linux-musl/bin/codex app-server --analytics-default-enabled "
+      "pid": 357273,
+      "cmd": "/home/yun/.npm-global/lib/node_modules/@openai/codex/node_modules/@openai/codex-linux-x64/vendor/x86_64-unknown-linux-musl/bin/codex app-server --analytics-default-enabled "
     },
     {
-      "pid": 278053,
-      "cmdline": "/home/yun/tmp/codex-linux-app-proof/upstream/codex-desktop-linux/codex-app/electron --type=renderer --crashpad-handler-pid=277734 --enable-crash-reporter=a53bcd9b-21bf-4a1a-93e0-37f04dc5f9aa,no_channel --user-data-dir=/home/yun/.config/Codex --standard-schemes=app --secure-schemes=app,sentry-ipc --bypasscsp-schemes=sentry-ipc --cors-schemes=sentry-ipc --fetch-schemes=app,sentry-ipc --streaming-schemes=app --app-path=/home/yun/tmp/codex-linux-app-proof/upstream/codex-desktop-linux/codex-app/resources/app.asar --enable-sandbox --no-sandbox --disable-dev-shm-usage --ozone-platform=wayland --disable-gpu-compositing --lang=en-US --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=4 --time-ticks-at-unix-epoch=-1781907350210852 --launch-time-ticks=53841473862 --shared-files=v8_context_snapshot_data:100 --field-trial-handle=3,i,8776756361955160250,9878661616880241485,262144 --enable-features=DocumentPolicyIncludeJSCallStacksInCrashReports,PdfUseShowSaveFilePicker --disable-features=DropInputEventsWhilePaintHolding,LocalNetworkAccessChecks,ScreenAIOCREnabled,SpareRendererForSitePerProcess,TraceSiteInstanceGetProcessCreation --variations-seed-version --pseudonymization-salt-handle=7,i,1790365176283689335,377164584121245181,4 --trace-process-track-uuid=3190708990060038890 "
+      "pid": 357499,
+      "cmd": "/home/yun/tmp/codex-linux-app-proof/upstream/codex-desktop-linux/codex-app/electron --type=renderer --crashpad-handler-pid=357153 --enable-crash-reporter=a53bcd9b-21bf-4a1a-93e0-37f04dc5f9aa,no_channel --user-data-dir=/home/yun/.config/Codex --standard-schemes=app --secure-schemes=app,sentry-ipc --bypasscsp-schemes=sentry-ipc --cors-schemes=sentry-ipc --fetch-schemes=app,sentry-ipc --streaming-schemes=app --app-path=/home/yun/tmp/codex-linux-app-proof/upstream/codex-desktop-linux/codex-app/resources/app.asar --enable-sandbox --no-sandbox --disable-dev-shm-usage --remote-debugging-port=9223 --ozone-platform=wayland --disable-gpu-compositing --lang=en-US --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=4 --time-ticks-at-unix-epoch=-1781907350210852 --launch-time-ticks=58577892250 --shared-files=v8_context_snapshot_data:100 --field-trial-handle=3,i,4779554022178234046,6554413097207726697,262144 --enable-features=DocumentPolicyIncludeJSCallStacksInCrashReports,PdfUseShowSaveFilePicker --disable-features=DropInputEventsWhilePaintHolding,LocalNetworkAccessChecks,OwlAuth,OwlAutofillAndPasswords,OwlDownloads,OwlExtensions,OwlOpenAIGoLinks,OwlPermissions,OwlPrinting,OwlWebViewEnhancements,ScreenAIOCREnabled,SpareRendererForSitePerProcess,TraceSiteInstanceGetProcessCreation --variations-seed-version --pseudonymization-salt-handle=7,i,7585683371880614003,16574306691855051377,4 --trace-process-track-uuid=3190708990060038890 "
+    },
+    {
+      "pid": 359827,
+      "cmd": "/home/yun/tmp/codex-linux-app-proof/upstream/codex-desktop-linux/codex-app/resources/node_repl "
+    },
+    {
+      "pid": 365008,
+      "cmd": "/home/yun/tmp/codex-linux-app-proof/upstream/codex-desktop-linux/codex-app/resources/node_repl "
+    },
+    {
+      "pid": 376139,
+      "cmd": "/home/yun/tmp/codex-linux-app-proof/upstream/codex-desktop-linux/codex-app/resources/node_repl "
+    },
+    {
+      "pid": 379209,
+      "cmd": "/home/yun/tmp/codex-linux-app-proof/upstream/codex-desktop-linux/codex-app/resources/node_repl "
+    },
+    {
+      "pid": 382712,
+      "cmd": "/home/yun/tmp/codex-linux-app-proof/upstream/codex-desktop-linux/codex-app/resources/node-runtime/bin/node --experimental-vm-modules /tmp/.tmp1jvMtg/kernel.js --session-id 5d638c53b79a4b8785bab6058edfe087 --working-dir /home/yun/Documents/Codex/2026-06-20/use-browser-use-to-ope "
+    },
+    {
+      "pid": 383568,
+      "cmd": "/home/yun/tmp/codex-linux-app-proof/upstream/codex-desktop-linux/codex-app/electron --type=renderer --crashpad-handler-pid=357153 --enable-crash-reporter=a53bcd9b-21bf-4a1a-93e0-37f04dc5f9aa,no_channel --user-data-dir=/home/yun/.config/Codex --standard-schemes=app --secure-schemes=app,sentry-ipc --bypasscsp-schemes=sentry-ipc --cors-schemes=sentry-ipc --fetch-schemes=app,sentry-ipc --streaming-schemes=app --app-path=/home/yun/tmp/codex-linux-app-proof/upstream/codex-desktop-linux/codex-app/resources/app.asar --enable-sandbox --enable-blink-features --disable-blink-features --no-sandbox --disable-dev-shm-usage --remote-debugging-port=9223 --ozone-platform=wayland --disable-gpu-compositing --lang=en-US --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=9 --time-ticks-at-unix-epoch=-1781907350210852 --launch-time-ticks=58987558446 --shared-files=v8_context_snapshot_data:100 --field-trial-handle=3,i,4779554022178234046,6554413097207726697,262144 --enable-features=DocumentPolicyIncludeJSCallStacksInCrashReports,PdfUseShowSaveFilePicker --disable-features=DropInputEventsWhilePaintHolding,LocalNetworkAccessChecks,OwlAuth,OwlAutofillAndPasswords,OwlDownloads,OwlExtensions,OwlOpenAIGoLinks,OwlPermissions,OwlPrinting,OwlWebViewEnhancements,ScreenAIOCREnabled,SpareRendererForSitePerProcess,TraceSiteInstanceGetProcessCreation --variations-seed-version --pseudonymization-salt-handle=7,i,7585683371880614003,16574306691855051377,4 --trace-process-track-uuid=3190708994745248135 "
+    },
+    {
+      "pid": 384622,
+      "cmd": "/home/yun/tmp/codex-linux-app-proof/upstream/codex-desktop-linux/codex-app/resources/node_repl "
+    },
+    {
+      "pid": 387714,
+      "cmd": "/home/yun/tmp/codex-linux-app-proof/upstream/codex-desktop-linux/codex-app/resources/node_repl "
+    },
+    {
+      "pid": 396468,
+      "cmd": "/home/yun/tmp/codex-linux-app-proof/upstream/codex-desktop-linux/codex-app/resources/node-runtime/bin/node --experimental-vm-modules /tmp/.tmpuK7ltF/kernel.js --session-id 240ba506f2924906aae39656e26fe073 --working-dir /home/yun/Documents/Codex/2026-06-20/inspe "
     }
   ]
 }

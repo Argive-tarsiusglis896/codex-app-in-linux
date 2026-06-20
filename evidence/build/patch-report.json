@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-06-20T13:12:12.196Z",
-  "target": "/tmp/tmp.jh0CheRXyP/app-extracted/.vite/build/main-CXkxd7xB.js",
+  "generatedAt": "2026-06-20T14:29:58.793Z",
+  "target": "/tmp/tmp.NLKpDkkwKe/app-extracted/.vite/build/main-CXkxd7xB.js",
   "mainBundle": "main-CXkxd7xB.js",
   "iconAsset": "app-D0g8sCle.png",
   "desktopName": "codex-desktop.desktop",
@@ -535,6 +535,14 @@
       "phase": "webview-asset",
       "targetSummary": "all-linux",
       "ciPolicy": "optional",
+      "sourceKind": "core"
+    },
+    {
+      "name": "linux-dynamic-tool-input-schema",
+      "status": "applied",
+      "phase": "webview-asset",
+      "targetSummary": "all-linux",
+      "ciPolicy": "required-upstream",
       "sourceKind": "core"
     },
     {

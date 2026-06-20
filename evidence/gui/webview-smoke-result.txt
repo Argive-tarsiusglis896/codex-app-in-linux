@@ -1,1 +1,1 @@
-HTTP 200; bootstrapFailed=false; owlBindingError=false; app routes mounted=true; ready message handled=true; account/read succeeded; loggedInUserPresent=true; browser_use_iab_backend_startup_ready=true
+HTTP 200; bootstrapFailed=false; owlBindingError=false; threadStartInputSchemaError=false; basicChat=codex-linux-qa-ok; shell=codex-linux-shell-ok; browserUse=Example Domain; search=pass

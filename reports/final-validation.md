@@ -2,9 +2,9 @@
 
 ## Result
 
-PASS for local non-system proof: the wrapper built a Linux Electron Codex app from the latest observed upstream Codex DMG (`26.616.41845`), and the generated app started on Linux without the prior `electron_common_owl_features` startup failure. The current proof shows the renderer mounted, the ready message was handled, the app-server handshake worked, an existing signed-in account was readable, and Browser Use IAB backend startup reached ready state.
+PASS WITH LIMITATIONS for local non-system proof: the wrapper built a Linux Electron Codex app from the latest observed upstream Codex DMG (`26.616.41845`), and the generated app started on Linux without the prior `electron_common_owl_features` startup failure. After a second compatibility fix, controlled chat creation also works without the `thread/start` / `missing field inputSchema` failure. The current proof shows the renderer mounted, the ready message was handled, the app-server handshake worked, an existing signed-in account was readable, Browser Use IAB backend startup reached ready state, basic chat returned `codex-linux-qa-ok`, a harmless shell command returned `codex-linux-shell-ok`, and Browser Use returned `Example Domain` from `https://example.com`.
 
-The latest DMG required local wrapper compatibility patches for upstream drift in tray setup detection, the subagent metadata webview bundle pattern, and OpenAI's custom `electron_common_owl_features` native binding. The compatibility diff is recorded at `evidence/reports/wrapper-latest-compat.patch`.
+The latest DMG required local wrapper compatibility patches for upstream drift in tray setup detection, the subagent metadata webview bundle pattern, OpenAI's custom `electron_common_owl_features` native binding, and latest app-server dynamic tool schema validation (`linux-dynamic-tool-input-schema`). The compatibility diff is recorded at `evidence/reports/wrapper-latest-compat.patch`.
 
 Screenshot capture was not rerun in this latest smoke pass; the prior GNOME/Wayland proof attempt was blocked by `org.freedesktop.DBus.Error.AccessDenied` and X root capture failed with `BadMatch`. Visual screenshot evidence remains incomplete, but startup failure modal absence is backed by current app logs (`bootstrapFailed=false`, `owlBindingError=false`) rather than HTTP-only webview reachability.
 
@@ -47,6 +47,7 @@ No `sudo`, `pkexec`, package manager, service enablement, native package install
   - Linux Computer Use backend compiled
   - `codex-app/start.sh` generated
   - `linux-owl-feature-binding-noop` required patch applied
+  - `linux-dynamic-tool-input-schema` required patch applied
 
 ## Launch / smoke evidence
 
@@ -54,6 +55,8 @@ Evidence files:
 
 - `evidence/gui/process-evidence.txt`
 - `evidence/gui/webview-smoke-result.txt`
+- `evidence/gui/codex-app-latest-launch-exit.txt`
+- `evidence/reports/interactive-qa-summary.json`
 - `evidence/gui/gnome-screenshot-result.txt`
 - `evidence/gui/codex-app-window-probe.log`
 - `evidence/gui/codex-app-webview-smoke.log`
@@ -75,6 +78,8 @@ Observed during launch:
   - `Handled 'ready' message`
   - `account/read` succeeded for an existing signed-in `chatgpt` user
   - `browser_use_iab_backend_startup_ready`
+  - `thread/start` succeeded without `missing field inputSchema`
+  - controlled chat, shell, search, and Browser Use smokes passed
 
 This proves the generated Linux app launches its local UI server, imports the main app without the Owl native binding crash, mounts the renderer, and connects to the local Codex app-server on this Linux host.
 
@@ -90,13 +95,19 @@ Completed:
 - Electron process tree check.
 - Required upstream patch validation after local compatibility patches.
 - Existing signed-in account readiness check.
-- Browser Use IAB backend startup readiness check.
+- Basic chat creation and response smoke: `codex-linux-qa-ok`.
+- Harmless shell command smoke: `echo codex-linux-shell-ok`.
+- Chat search smoke for `codex-linux-qa-ok`.
+- Browser Use smoke: `https://example.com` returned `Example Domain`.
+- Computer Use availability inspection: disabled/not exposed; no helper install or sudo attempted.
+- Chrome/native-host inspection: configured on disk for Chrome Profile 1, but not live-connected because Chrome was not running; Chromium/Brave not present.
 
 Not completed:
 
 - Visual screenshot proof, because GNOME/Wayland denied screenshot over DBus and X root capture failed.
 - Fresh unauthenticated login/sign-in flow from a clean profile.
-- Disposable project/thread/shell approval QA.
+- Full disposable project file-dialog workflow.
+- Settings persistence restart cycle.
 
 ## Security notes
 
