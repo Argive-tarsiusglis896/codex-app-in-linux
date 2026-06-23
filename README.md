@@ -49,6 +49,16 @@ browser_use_iab_backend_startup_ready=true
 ```
 
 ## Reproduce safely
+### Computer Use / Chrome prerequisites
+
+The wrapper build can start without Linux Computer Use support when the bundled plugin build is skipped. Before building, install a working Rust toolchain and the desktop-control helper so Chrome/Computer Use support is not accidentally omitted:
+
+```bash
+sudo apt-get install -y cargo rustc ydotool
+cargo --version
+```
+
+Use Cargo `1.78.0` or newer. If `cargo` is missing or too old during the wrapper build, treat the build as incomplete and rebuild after fixing Rust/Cargo instead of debugging the Codex app UI.
 
 First proof path avoids system-wide install.
 
